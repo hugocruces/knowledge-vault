@@ -1,0 +1,16 @@
+# Secrets
+.env
+
+# Claude local settings (may contain API keys)
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# PDFs are data, not code — ignore by default
+*.pdf
+
+# OS
+.DS_Store
