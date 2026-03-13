@@ -23,11 +23,14 @@ import argparse
 import textwrap
 from pathlib import Path
 
+import shutil
 import fitz
 import requests
 import anthropic
 from dotenv import load_dotenv
 from pyzotero import zotero
+
+ZOTERO_STORAGE = Path.home() / "Zotero" / "storage"
 
 HERE = Path(__file__).parent
 load_dotenv(HERE / ".env")
@@ -303,10 +306,30 @@ def import_pdf(pdf_path: Path, col_keys: list[str], zot,
         print(f"  ERROR creating item: {e}")
         return "failed"
 
-    # 6. Attach PDF
+    # 6. Create attachment item and copy PDF into Zotero local storage
     try:
-        zot.attachment_simple([str(pdf_path)], parentid=parent_key)
-        print(f"  Created {parent_key}, PDF attached.")
+        basename = pdf_path.name
+        attachment_template = [{
+            "itemType":    "attachment",
+            "linkMode":    "imported_file",
+            "title":       basename,
+            "contentType": "application/pdf",
+            "filename":    basename,
+            "parentItem":  parent_key,
+            "collections": [],
+            "tags": [],
+        }]
+        att_resp = zot.create_items(attachment_template)
+        if not att_resp.get("success"):
+            print(f"  WARNING: item created ({parent_key}) but attachment metadata failed.")
+            return "ok"
+        att_key = list(att_resp["success"].values())[0]
+
+        # Copy the PDF into ~/Zotero/storage/{att_key}/
+        dest_dir = ZOTERO_STORAGE / att_key
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(pdf_path, dest_dir / basename)
+        print(f"  Created {parent_key}, PDF copied to storage/{att_key}/")
     except Exception as e:
         print(f"  WARNING: item created ({parent_key}) but attachment failed: {e}")
 
