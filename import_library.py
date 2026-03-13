@@ -203,19 +203,30 @@ def build_item(meta: dict, col_keys: list[str]) -> dict:
 
 # ── Duplicate detection ───────────────────────────────────────────────────────
 
+def _normalize(t: str) -> str:
+    return "".join(c.lower() for c in t if c.isalnum() or c.isspace()).split()
+
 def is_duplicate(zot, title: str, doi: str | None) -> bool:
     """Return True if a matching item already exists in the Zotero library."""
+    # DOI match is authoritative
     if doi:
-        results = zot.items(q=doi, qmode="everything", limit=1)
-        if results:
-            return True
-    if title:
-        results = zot.items(q=title[:60], limit=5)
-        title_lower = title.lower().strip()
+        results = zot.items(q=doi, qmode="everything", limit=3)
         for r in results:
-            existing = r["data"].get("title", "").lower().strip()
-            # Simple prefix match — enough to catch exact duplicates
-            if existing and (existing in title_lower or title_lower in existing):
+            if doi.lower() in (r["data"].get("DOI") or "").lower():
+                return True
+    # Title match: require ≥90% word overlap (not substring — avoids false positives)
+    if title:
+        results = zot.items(q=title[:80], limit=5)
+        words_a = set(_normalize(title))
+        if not words_a:
+            return False
+        for r in results:
+            existing = r["data"].get("title", "")
+            if not existing:
+                continue
+            words_b = set(_normalize(existing))
+            overlap = len(words_a & words_b) / max(len(words_a), len(words_b))
+            if overlap >= 0.9:
                 return True
     return False
 
