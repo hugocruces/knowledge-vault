@@ -1,0 +1,1409 @@
+{
+  "collections": [
+    "Inequality of Opportunity",
+    "Intergenerational Mobility",
+    "Wealth Inequality & Inheritance",
+    "Income Inequality & Redistribution",
+    "Gender Inequality & Labour",
+    "Tax & Redistribution Systems",
+    "Fairness & Social Preferences",
+    "AI, Algorithms & Fairness",
+    "Labour Markets & Technology",
+    "Political Economy & Populism",
+    "Utility Theory & Welfare Economics",
+    "Econometric Methods",
+    "Neighbourhoods & Social Mobility",
+    "Mathematical Topology & Misc"
+  ],
+  "assignments": {
+    "Aaberge, Mogstad, Peragine - 2011 - Measuring long-term inequality of opportunity.pdf": [
+      "Inequality of Opportunity",
+      "Intergenerational Mobility"
+    ],
+    "Acemoglu, Autor - 2011 - Skills, tasks and technologies Implications for employment and earnings.pdf": [
+      "Labour Markets & Technology"
+    ],
+    "Acemoglu, Restrepo - 2019 - Automation and new tasks How technology displaces and reinstates labor.pdf": [
+      "Labour Markets & Technology"
+    ],
+    "Adermon, Lindahl, Waldenström - 2018 - Intergenerational Wealth Mobility and the Role of Inheritance Evidence from Multiple Generations.pdf": [
+      "Intergenerational Mobility",
+      "Wealth Inequality & Inheritance"
+    ],
+    "Aghion et al. - 2019 - Innovation and Top Income Inequality.pdf": [
+      "Income Inequality & Redistribution",
+      "Labour Markets & Technology"
+    ],
+    "Agrawal, Foremny, Martínez-Toledano - 2020 - Paraísos Fiscales, Wealth Taxation, and Mobility.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Tax & Redistribution Systems"
+    ],
+    "Aiyar, Ebeke - 2019 - Inequality of Opportunity, Inequality of Income and Economic Growth.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Alchian - 1953 - The Meaning of Utility Measurement.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Alesina, Angeletos - 2005 - Fairness and Redistribution.pdf": [
+      "Fairness & Social Preferences",
+      "Income Inequality & Redistribution",
+      "Political Economy & Populism"
+    ],
+    "Alesina, Giuliano - 2015 - Culture and Institutions.pdf": [
+      "Political Economy & Populism"
+    ],
+    "Alesina, Stantcheva, Teso - 2018 - Intergenerational Mobility and Preferences for Redistribution.pdf": [
+      "Intergenerational Mobility",
+      "Political Economy & Populism",
+      "Fairness & Social Preferences"
+    ],
+    "Algan et al. - 2017 - The European Trust Crisis and the Rise of Populism.pdf": [
+      "Political Economy & Populism"
+    ],
+    "Almås et al. - 2010 - Fairness and the Development of Inequality Acceptance.pdf": [
+      "Fairness & Social Preferences",
+      "Income Inequality & Redistribution"
+    ],
+    "Almås et al. - 2011 - Measuring unfair (in)equality.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Alstadsæter, Johannesen, Zucman - 2019 - Tax evasion and inequality.pdf": [
+      "Tax & Redistribution Systems",
+      "Income Inequality & Redistribution",
+      "Wealth Inequality & Inheritance"
+    ],
+    "Alvaredo, Atkinson, Morelli - 2018 - Top wealth shares in the UK over more than a century.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Alvaredo, Garbinti, Piketty - 2017 - On the Share of Inheritance in Aggregate Wealth Europe and the USA, 1900–2010.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Anand, Segal - 2008 - What do we know about global income inequality.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Andreoli, Fusco - 2017 - The evolution of inequality of opportunity across Europe EU-SILC evidence.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Andreoli, Fusco - 2019 - Robust cross-country analysis of inequality of opportunity.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Andreoli, Havnes, Lefranc - 2019 - Robust inequality of opportunity comparisons Theory and application to early childhood policy evaluat.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Ang - 2020 - The Effects of Police Violence on Inner-City Students.pdf": [
+      "Neighbourhoods & Social Mobility"
+    ],
+    "Angrist, Pischke - 2010 - The credibility revolution in empirical economics How better research design is taking the con out of economet.pdf": [
+      "Econometric Methods"
+    ],
+    "Arellano - 2003 - Discrete Choices with Panel Data.pdf": [
+      "Econometric Methods"
+    ],
+    "Arellano, Bover - 1995 - Another Look at the Instrumental Variable Estimation of Error-Component Models.pdf": [
+      "Econometric Methods"
+    ],
+    "Arellano, Carrasco - 2003 - Binary choice panel data models with predetermined variables.pdf": [
+      "Econometric Methods"
+    ],
+    "Arellano, Honoré - 2001 - Handbook of econometrics Chapter 53.pdf": [
+      "Econometric Methods"
+    ],
+    "Arneson - 2018 - Four Conceptions of Equal Opportunity.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Aron, Maestre - 2003 - A connected metric space that is not serapably connected.pdf": [
+      "Mathematical Topology & Misc"
+    ],
+    "Arruñada, Garicano - 2018 - Blockchain The Birth of Decentralized Governance.pdf": [],
+    "Athey, Imbens - 2019 - Machine Learning Methods Economists Should Know About.pdf": [
+      "AI, Algorithms & Fairness",
+      "Econometric Methods"
+    ],
+    "Atkinson - 1970 - On the Measurement of Income Inequality.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Atkinson - 2018 - Wealth and inheritance in Britain from 1896 to the present.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Autor et al. - 2020 - The fall of the labor share and the rise of superstar firms.pdf": [
+      "Labour Markets & Technology",
+      "Income Inequality & Redistribution"
+    ],
+    "Autor, Dorn, Hanson - 2013 - The China syndrome Local labor market effects of import competition in the United States.pdf": [
+      "Labour Markets & Technology"
+    ],
+    "Ayala, Cantó, Rodríguez - 2016 - Poverty and the business cycle A regional panel data analysis for Spain using alternative measures of.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Bagchi, Svejnar - 2015 - Does wealth inequality matter for growth The effect of billionaire wealth, income distribution, and poverty.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Income Inequality & Redistribution"
+    ],
+    "Balbás de la Corte et al. - 1998 - Espacios separablemente conexos.pdf": [
+      "Mathematical Topology & Misc"
+    ],
+    "Banerjee et al. - 2020 - A pause in Southern Hemisphere circulation trends due to the Montreal Protocol.pdf": [],
+    "Barth, Papageorge, Thom - 2019 - Genetic Endowments and Wealth Inequality.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Barth, Papageorge, Thom - 2020 - Genetic endowments and wealth inequality.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Baumol - 1958 - The Cardinal Utility Which is Ordinal.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Beardon, Mehta - 1994 - The Utility Theorems of Wold, Debreu, and Arrow-Hahn.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Becker, Tomes - 1979 - An Equilibrium Theory of the Distribution of Income and Intergenerational Mobility.pdf": [
+      "Intergenerational Mobility",
+      "Income Inequality & Redistribution"
+    ],
+    "Becker, Tomes - 1986 - Human capital and the rise and fall of families.pdf": [
+      "Intergenerational Mobility",
+      "Income Inequality & Redistribution"
+    ],
+    "Bell et al. - 2019 - Who Becomes An Inventor In America The Importance Of Exposure To Innovation.pdf": [
+      "Intergenerational Mobility",
+      "Neighbourhoods & Social Mobility",
+      "Labour Markets & Technology"
+    ],
+    "Benhabib, Bisin, Luo - 2019 - Wealth distribution and social mobility in the US A quantitative approach.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Berg et al. - 2018 - Redistribution, inequality, and growth new evidence.pdf": [
+      "Income Inequality & Redistribution",
+      "Tax & Redistribution Systems"
+    ],
+    "Berk et al. - 2018 - Fairness in Criminal Justice Risk Assessments The State of the Art.pdf": [
+      "AI, Algorithms & Fairness",
+      "Fairness & Social Preferences"
+    ],
+    "Bertrand, Kamenica, Pan - 2015 - Gender Identity and Relative Income within Households.pdf": [
+      "Gender Inequality & Labour",
+      "Fairness & Social Preferences"
+    ],
+    "Bewley - 1972 - Existence of equilibria in economies with infinitely many commodities.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Bisin et al. - 2011 - Ethnic identity and labour market outcomes of immigrants in Europe.pdf": [
+      "Labour Markets & Technology"
+    ],
+    "Björklund, Jäntti, Roemer - 2012 - Equality of opportunity and the distribution of long-run income in Sweden.pdf": [
+      "Inequality of Opportunity",
+      "Intergenerational Mobility"
+    ],
+    "Black et al. - 2020 - Poor Little Rich Kids The Role of Nature versus Nurture in Wealth and Other Economic Outcomes and Behaviours(2).pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Black et al. - 2020 - Poor Little Rich Kids The Role of Nature versus Nurture in Wealth and Other Economic Outcomes and Behaviours.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Blau, Kahn - 2017 - The Gender Wage Gap Extent, Trends, and Explanations.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Blau, Kahn - 2017 - The Gender Wage Gap.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Blaug - 1997 - Economic Theory in Retrospect.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Bond - 2002 - Dynamic Panel Data Models A Guide to Micro Data Methods and Practice.pdf": [
+      "Econometric Methods"
+    ],
+    "Boserup, Kopczuk, Kreiner - 2014 - Stability and persistence of intergenerational wealth formation Evidence from Danish wealth records o.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Boserup, Kopczuk, Kreiner - 2016 - The Role of Bequests in Shaping Wealth Inequality Evidence from Danish Wealth Records.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Boserup, Kopczuk, Kreiner - 2017 - Intergenerational Wealth Formation over the Life Cycle Evidence from Danish Wealth Records 1984-2013.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Boserup, Kopczuk, Kreiner - 2018 - Born with a Silver Spoon Danish Evidence on Wealth Inequality in Childhood.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Bossert - 1995 - Redistribution mechanisms based on individual characteristics.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences",
+      "Tax & Redistribution Systems"
+    ],
+    "Bourdieu et al. - 2019 - Intergenerational Wealth Mobility in France, 19th and 20th Century.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Bourguignon, Ferreira, Menéndez - 2003 - Inequality of Outcomes and Inequality of Opportunities in Brazil.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Bourguignon, Ferreira, Menéndez - 2007 - Inequality of opportunity in Brazil.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Bourguignon, Ferreira, Menéndez - 2013 - Inequality of Opportunity in Brazil A Corrigendum.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Bourguignon, Ferreira, Walton - 2007 - Equity, efficiency and inequality traps A research agenda.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Braun, Stuhler - 2018 - The Transmission of Inequality Across Multiple Generations Testing Recent Theories with Evidence from Germany.pdf": [
+      "Intergenerational Mobility",
+      "Wealth Inequality & Inheritance"
+    ],
+    "Brosnan, De Waal - 2003 - Monkeys reject unequal pay.pdf": [
+      "Fairness & Social Preferences"
+    ],
+    "Brunori - 2015 - The Perception of Inequality of Opportunity in Europe.pdf": [
+      "Fairness & Social Preferences",
+      "Inequality of Opportunity",
+      "Political Economy & Populism"
+    ],
+    "Brunori, Ferreira, Peragine - 2013 - Inequality of opportunity, income inequality and economic mobility some international comparisons.pdf": [
+      "Inequality of Opportunity",
+      "Intergenerational Mobility",
+      "Income Inequality & Redistribution"
+    ],
+    "Brunori, Ferreira, Peragine - 2013 - Inequality of opportunity, income inequality, and economic mobility Some international comparisons.pdf": [
+      "Inequality of Opportunity",
+      "Intergenerational Mobility",
+      "Income Inequality & Redistribution"
+    ],
+    "Brunori, Hufe, Mahler - 2018 - The roots of inequality Estimating inequality of opportunity from regression trees.pdf": [
+      "Inequality of Opportunity",
+      "AI, Algorithms & Fairness"
+    ],
+    "Brunori, Hufe, Mahler - 2020 - The Roots of Inequality Estimating Inequality of Opportunity from Regression Trees and Forests.pdf": [
+      "Inequality of Opportunity",
+      "AI, Algorithms & Fairness"
+    ],
+    "Brunori, Neidhöfer - 2020 - The Evolution of Inequality of Opportunity in Germany A Machine Learning Approach.pdf": [
+      "Inequality of Opportunity",
+      "AI, Algorithms & Fairness"
+    ],
+    "Brunori, Palmisano, Peragine - 2016 - Inequality of Opportunity in Sub-Saharan Africa.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Brunori, Palmisano, Peragine - 2019 - Inequality of opportunity in sub-Saharan Africa.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Brunori, Peragine, Serlenga - 2018 - Upward and Downward Bias When Measuring Inequality of Opportunity.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Brunori, Peragine, Serlenga - 2019 - Upward and downward bias when measuring inequality of opportunity.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Bucher-Koenen, Ziegelmeyer - 2011 - Who Lost the Most Financial Literacy, Cognitive Abilities, and the Financial Crisis.pdf": [
+      "Fairness & Social Preferences"
+    ],
+    "Burgoon et al. - 2019 - Positional deprivation and support for radical right and radical left parties.pdf": [
+      "Political Economy & Populism",
+      "Income Inequality & Redistribution"
+    ],
+    "Bursztyn, Thomas, Pallais - 2017 - `Acting Wife' Marriage Market Incentives.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Bénabou, Ok - 2001 - Social mobility and the demand for redistribution The POUM hypothesis.pdf": [
+      "Political Economy & Populism",
+      "Intergenerational Mobility",
+      "Income Inequality & Redistribution",
+      "Fairness & Social Preferences"
+    ],
+    "Bénabou, Tirole - 2006 - Belief in a just world and redistributive politics.pdf": [
+      "Political Economy & Populism",
+      "Fairness & Social Preferences",
+      "Income Inequality & Redistribution"
+    ],
+    "Bénabou, Tirole - 2006 - Incentives and prosocial behavior.pdf": [
+      "Fairness & Social Preferences"
+    ],
+    "CEA - 2012 - Economic Report of the President.pdf": [
+      "Income Inequality & Redistribution",
+      "Tax & Redistribution Systems"
+    ],
+    "Candeal, Hervés-Beloso, Induráin - 1998 - Some results on representation and extension of preferences.pdf": [
+      "Utility Theory & Welfare Economics",
+      "Mathematical Topology & Misc"
+    ],
+    "Cappelen et al. - 2014 - Equity theory and fair inequality A neuroeconomic study.pdf": [
+      "Fairness & Social Preferences",
+      "Inequality of Opportunity"
+    ],
+    "Cappelen, Sørensen, Tungodden - 2010 - Responsibility for what Fairness and individual responsibility.pdf": [
+      "Fairness & Social Preferences",
+      "Inequality of Opportunity"
+    ],
+    "Carranza - 2020 - Inequality of Outcomes, Inequality of Opportunity, and Economic Growth.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Carranza - 2020 - Upper and lower bound estimates of inequality of opportunity a cross-national comparison for Europe.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Celarent - 2009 - The Rise of the Meritocracy, 1870–2033, by Michael Young.pdf": [
+      "Intergenerational Mobility",
+      "Inequality of Opportunity"
+    ],
+    "Cesarini et al. - 2009 - Genetic variation in preferences for giving and risk taking.pdf": [
+      "Fairness & Social Preferences"
+    ],
+    "Chamberlain, Rothschild - 1983 - Arbitrage, Factor Structure, and Mean-Variance Analysis on Large Asset Markets.pdf": [
+      "Econometric Methods"
+    ],
+    "Charles, Hurst - 2003 - The Correlation of Wealth across Generations.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Checchi, Peragine - 2010 - Inequality of opportunity in Italy.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Checchi, Peragine, Serlenga - 2015 - Income Inequality and Opportunity Inequality in Europe Recent Trends and Explaining Factors.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Checchi, Peragine, Serlenga - 2016 - Inequality of opportunity in Europe Is there a role for institutions.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Chetty et al. - 2014 - Where is the Land of Opportunity The Geography of Intergenerational Mobility in the United States.pdf": [
+      "Intergenerational Mobility",
+      "Neighbourhoods & Social Mobility",
+      "Inequality of Opportunity"
+    ],
+    "Chetty et al. - 2016 - The Association Between Income and Life Expectancy in the United States, 2001–2014.pdf": [
+      "Income Inequality & Redistribution",
+      "Intergenerational Mobility"
+    ],
+    "Chetty et al. - 2017 - The fading American dream Trends in absolute income mobility since 1940.pdf": [
+      "Intergenerational Mobility",
+      "Income Inequality & Redistribution"
+    ],
+    "Chetty et al. - 2018 - The Opportunity Atlas Mapping the Childhood Roots of Social Mobility.pdf": [
+      "Intergenerational Mobility",
+      "Neighbourhoods & Social Mobility"
+    ],
+    "Chetty et al. - 2020 - Race and economic opportunity in the United States An intergenerational perspective.pdf": [
+      "Intergenerational Mobility",
+      "Inequality of Opportunity"
+    ],
+    "Chetty, Hendren - 2018 - The Impacts of Neighborhoods on Intergenerational Mobility I Childhood Exposure Effects.pdf": [
+      "Neighbourhoods & Social Mobility",
+      "Intergenerational Mobility"
+    ],
+    "Chetty, Hendren - 2018 - The impacts of neighborhoods on intergenerational mobility II county-level estimates.pdf": [
+      "Neighbourhoods & Social Mobility",
+      "Intergenerational Mobility"
+    ],
+    "Chetty, Hendren, Katz - 2016 - The Effects of Exposure to Better Neighborhoods on Children New Evidence from the Moving to Opportunity E.pdf": [
+      "Neighbourhoods & Social Mobility",
+      "Intergenerational Mobility"
+    ],
+    "Chetty, Looney, Kroft - 2009 - Salience and taxation Theory and evidence.pdf": [
+      "Tax & Redistribution Systems"
+    ],
+    "Chipman - 1960 - The Foundations of Utility.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Chouldechova - 2017 - Fair Prediction with Disparate Impact A Study of Bias in Recidivism Prediction Instruments.pdf": [
+      "AI, Algorithms & Fairness"
+    ],
+    "Chyn - 2018 - Moved to opportunity The long-run effects of public housing demolition on children.pdf": [
+      "Neighbourhoods & Social Mobility",
+      "Intergenerational Mobility"
+    ],
+    "Cingano - 2014 - Trends in Income Inequality and its Impact on Economic Growth.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Cohen - 1989 - On the Currency of Egalitarian Justice.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Conrad - Unknown - Spaces that are connected but not path-connected.pdf": [
+      "Mathematical Topology & Misc"
+    ],
+    "Corak - 2013 - Income Inequality, Equality of Opportunity, and Intergenerational Mobility(2).pdf": [
+      "Inequality of Opportunity",
+      "Intergenerational Mobility",
+      "Income Inequality & Redistribution"
+    ],
+    "Corak - 2013 - Income Inequality, Equality of Opportunity, and Intergenerational Mobility.pdf": [
+      "Inequality of Opportunity",
+      "Intergenerational Mobility",
+      "Income Inequality & Redistribution"
+    ],
+    "Cowell, Karagiannaki, Mcknight - 2018 - Accounting for Cross-Country Differences in Wealth Inequality.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Cowell, Van Kerm - 2015 - Wealth inequality A survey.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Davies et al. - 2019 - UK Chief Medical Officers' Physical Activity Guidelines.pdf": [],
+    "Davies, Shorrocks - 2000 - The distribution of wealth.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Dawes et al. - 2007 - Egalitarian motives in humans.pdf": [
+      "Fairness & Social Preferences"
+    ],
+    "De La Rica, Glitz, Ortega - 2015 - Immigration in Europe Trends, policies, and empirical evidence.pdf": [
+      "Labour Markets & Technology"
+    ],
+    "De Nardi - 2004 - Wealth inequality and intergenerational links.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "De Nardi, Fella - 2017 - Saving and wealth inequality(2).pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "De Nardi, Fella - 2017 - Saving and wealth inequality.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "De Nardi, Yang - 2014 - Bequests and heterogeneity in retirement wealth.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "De Nardi, Yang - 2016 - Wealth inequality, family background, and estate taxation.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Tax & Redistribution Systems",
+      "Intergenerational Mobility"
+    ],
+    "Dean - 2008 - Statement of interest.pdf": [],
+    "Debreu - 1954 - Representation of a preference ordering by a numerical function.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Debreu - 1964 - Continuity Properties of Paretian Utility.pdf": [
+      "Utility Theory & Welfare Economics",
+      "Mathematical Topology & Misc"
+    ],
+    "Deutsch, Pi Alperin, Silber - 2018 - Using the Shapley Decomposition to Disentangle the Impact of Circumstances and Efforts on Health In.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Dolezal et al. - 2017 - Interrelationship between Sleep and Exercise A Systematic Review.pdf": [],
+    "Dougherty - 2002 - Who's afraid of Adam Smith How the market got its soul.pdf": [],
+    "Dworkin - 1981 - What is Equality Part 1 Equality of Welfare.pdf": [
+      "Fairness & Social Preferences",
+      "Inequality of Opportunity"
+    ],
+    "Dworkin - 1981 - What is Equality Part 2 Equality of Resources.pdf": [
+      "Fairness & Social Preferences",
+      "Inequality of Opportunity"
+    ],
+    "Edgeworth - 1881 - Mathematical psychics.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Eilenberg - 1941 - Ordered topological spaces.pdf": [
+      "Utility Theory & Welfare Economics",
+      "Mathematical Topology & Misc"
+    ],
+    "El Enbaby, Galal - 2015 - Inequality of Opportunity in Individuals' Wages and Households' Assets in Egypt.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Elinder, Erixson, Waldenström - 2018 - Inheritance and wealth inequality Evidence from population registers.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility",
+      "Tax & Redistribution Systems"
+    ],
+    "Ellsberg - 1954 - Classic and Current Notions of ``Measurable Utility''.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Erikson, Goldthorpe, Portocarero - 1979 - Intergenerational Class Mobility in Three Western European Societies England, France and Swede.pdf": [
+      "Intergenerational Mobility"
+    ],
+    "Estévez-Toranzo, Hervés-Beloso - 1995 - On the existence of continuous preference orderings without utility representations.pdf": [
+      "Utility Theory & Welfare Economics",
+      "Mathematical Topology & Misc"
+    ],
+    "Evensky - 2005 - Adam Smith's Theory of Moral Sentiments On morals and why they matter to a liberal society of free people and free mark.pdf": [],
+    "Fagereng et al. - 2016 - Heterogeneity in Returns to Wealth and the Measurement of Wealth Inequality.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Fagereng et al. - 2019 - Heterogeneity and Persistence in Returns to Wealth.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Fagereng et al. - 2020 - Heterogeneity and Persistence in Returns to Wealth.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Fagereng, Mogstad, Ronning - 2018 - Why Do Wealthy Parents Have Wealthy Children.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Fajardo-Gonzalez - 2016 - Inequality of opportunity in adult health in Colombia.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Falk, Szech - 2013 - Morals and markets.pdf": [
+      "Fairness & Social Preferences"
+    ],
+    "Fehr, Gachter - 2000 - Cooperation and punishment in public goods experiments.pdf": [
+      "Fairness & Social Preferences"
+    ],
+    "Fehr, Schmidt - 1999 - A Theory of Fairness, Competition and Cooperation.pdf": [
+      "Fairness & Social Preferences"
+    ],
+    "Ferreira et al. - 2014 - Inequality of Opportunity and Economic Growth A Cross-Country Analysis.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Ferreira et al. - 2018 - Inequality of Opportunity and Economic Growth How Much Can Cross-Country Regressions Really Tell Us.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution",
+      "Econometric Methods"
+    ],
+    "Ferreira, Gignoux - 2011 - The Measurement of Inequality of Opportunity Theory and an Application to Latin America.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Ferreira, Gignoux - 2014 - The Measurement of educational inequality Achievement and opportunity.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Ferreira, Gignoux, Aran - 2011 - Measuring Inequality of Opportunity with Imperfect Data The Case of Turkey.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Ferreira, Peragine - 2015 - Equality of Opportunity Theory and Evidence.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Ferreira, Peragine - 2016 - Equality of Opportunity Theory and Evidence.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Ferreira, Peragine - 2016 - Individual Responsibility and Equality of Opportunity.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Fessler, Schürz - 2018 - Private Wealth Across European Countries The Role of Income, Inheritance and the Welfare State.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility",
+      "Income Inequality & Redistribution"
+    ],
+    "Fleurbaey - 1995 - Three solutions for the compensation problem.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Fleurbaey - 2008 - Fairness, Responsibility, and Welfare.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences",
+      "Utility Theory & Welfare Economics"
+    ],
+    "Fleurbaey, Peragine - 2013 - Ex Ante Versus Ex Post Equality of Opportunity.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Fleurbaey, Peragine, Ramos - 2017 - Ex post inequality of opportunity comparisons.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Foa, Mounk - 2016 - The Danger of Deconsolidation The Democratic Disconnect.pdf": [
+      "Political Economy & Populism"
+    ],
+    "Foguel, Veloso - 2014 - Inequality of opportunity in daycare and preschool services in Brazil.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Fong - 2001 - Social preferences, self-interest, and the demand for redistribution.pdf": [
+      "Fairness & Social Preferences",
+      "Political Economy & Populism",
+      "Income Inequality & Redistribution"
+    ],
+    "Foster, Lustig - 2019 - Spotlight 3.2 Choosing an inequality index.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Foster, Shneyerov - 2000 - Path Independent Inequality Measures.pdf": [
+      "Income Inequality & Redistribution",
+      "Inequality of Opportunity"
+    ],
+    "Freedman, Pisani, Purves - 2007 - Statistics, 4th Edition(2).pdf": [],
+    "Freedman, Pisani, Purves - 2007 - Statistics, 4th Edition.pdf": [],
+    "Fremeaux, Leturcq - 2020 - Inequalities and the Individualization of Wealth.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Gender Inequality & Labour"
+    ],
+    "Fryer, Loury - 2013 - Valuing Diversity.pdf": [
+      "Fairness & Social Preferences",
+      "Inequality of Opportunity"
+    ],
+    "Funke, Schularick, Trebesch - 2016 - Going to extremes Politics after financial crises, 1870–2014.pdf": [
+      "Political Economy & Populism"
+    ],
+    "Ganna et al. - 2019 - Large-scale GWAS reveals insights into the genetic architecture of same-sex sexual behavior.pdf": [],
+    "Gaudecker - 2013 - How does Household Portfolio Diversification Vary with Financial Literacy and Financial Advice.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Gilens, Page - 2014 - Testing Theories of American Politics Elites, Interest Groups, and Average Citizens.pdf": [
+      "Political Economy & Populism"
+    ],
+    "Goedemé - 2013 - How much Confidence can we have in EU-SILC Complex Sample Designs and the Standard Error of the Europe 2020 Poverty In.pdf": [
+      "Income Inequality & Redistribution",
+      "Econometric Methods"
+    ],
+    "Goldin - 2014 - A grand gender convergence Its last chapter.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Goldin, Katz - 2016 - A most egalitarian profession Pharmacy and the evolution of a family-friendly occupation.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Gonzales et al. - 2015 - Catalyst for Change Empowering Women and Tackling Income Inequality.pdf": [
+      "Gender Inequality & Labour",
+      "Income Inequality & Redistribution"
+    ],
+    "Gordon - 1964 - Aristotle and the Development of Value Theory.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Graff Zivin Elizabeth Lyons, Graff Zivin, Lyons - 2020 - The Effects of Prize Structures on Innovative Performance.pdf": [],
+    "Grupo Banco Mundial - 2020 - Mujer, empresa y el derecho 2020.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Gründler, Scheuermeyer - 2018 - Growth effects of inequality and redistribution What are the transmission channels.pdf": [
+      "Income Inequality & Redistribution",
+      "Political Economy & Populism"
+    ],
+    "Guriev et al. - 2020 - 3G Internet and Confidence in Government.pdf": [
+      "Political Economy & Populism"
+    ],
+    "Gómez-Díaz, González-Solís - 2007 - Geographic assignment of seabirds to their origin Combining morphologic, genetic, and biogeochem.pdf": [],
+    "Haddad, Kanbur - 1990 - How Serious is the Neglect of Intra-Household Inequality.pdf": [
+      "Income Inequality & Redistribution",
+      "Inequality of Opportunity"
+    ],
+    "Hansen - 2014 - Self-Made Wealth or Family Wealth Changes in Intergenerational Wealth Mobility.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Harasztosi, Lindner - 2019 - Who Pays for the Minimum Wage.pdf": [
+      "Labour Markets & Technology",
+      "Income Inequality & Redistribution"
+    ],
+    "Harding, Franks, Wisden - 2019 - The temperature dependence of sleep.pdf": [],
+    "Hardt, Price, Srebro - 2016 - Equality of Opportunity in Supervised Learning.pdf": [
+      "AI, Algorithms & Fairness",
+      "Inequality of Opportunity"
+    ],
+    "Hastie, Tibshirani, Friedman - 2009 - The Elements of Statistical Learning.pdf": [
+      "AI, Algorithms & Fairness"
+    ],
+    "Heckman - 1976 - The Common Structure of Statistical Models of Truncation, Sample Selection and Limited Dependent Variables and a Simple.pdf": [
+      "Econometric Methods"
+    ],
+    "Heckman - 1977 - Sample Selection Bias as a Specification Error with an Application to the Estimation of Labor Supply Functions.pdf": [
+      "Econometric Methods"
+    ],
+    "Heckman - 1978 - Dummy Endogenous Variables in a Simultaneous Equation System.pdf": [
+      "Econometric Methods"
+    ],
+    "Heckman - 1979 - Sample Selection Bias as a Specification Error.pdf": [
+      "Econometric Methods"
+    ],
+    "Heckman - 2006 - Skill Formation and the Economics of Investing in Disadvantaged Children.pdf": [
+      "Intergenerational Mobility",
+      "Neighbourhoods & Social Mobility",
+      "Labour Markets & Technology"
+    ],
+    "Heckman, Humphries, Veramendi - 2018 - Returns to education The causal effects of education on earnings, health, and smoking.pdf": [
+      "Labour Markets & Technology",
+      "Intergenerational Mobility"
+    ],
+    "Hederos, Jäntti, Lindahl - 2017 - Gender and inequality of opportunity in Sweden.pdf": [
+      "Inequality of Opportunity",
+      "Gender Inequality & Labour"
+    ],
+    "Heidari et al. - 2018 - A Moral Framework for Understanding of Fair ML through Economic Models of Equality of Opportunity.pdf": [
+      "AI, Algorithms & Fairness",
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Hendren et al. - 2014 - WHERE IS THE LAND OF OPPORTUNITY THE GEOGRAPHY OF INTERGENERATIONAL MOBILITY IN THE UNITED STATES.pdf": [
+      "Intergenerational Mobility",
+      "Neighbourhoods & Social Mobility"
+    ],
+    "Hervés-Beloso, Monteiro - 2010 - Strictly monotonic preferences on continuum of goods commodity spaces.pdf": [
+      "Mathematical Topology & Misc",
+      "Utility Theory & Welfare Economics"
+    ],
+    "Hervés-Beloso, del Valle-Inclán Cruces - 2019 - Continuous Preference Orderings Representable By Utility Functions.pdf": [
+      "Utility Theory & Welfare Economics",
+      "Mathematical Topology & Misc"
+    ],
+    "Hinnosaar et al. - 2019 - Wikipedia Matters.pdf": [],
+    "Hsieh et al. - 2019 - The Allocation of Talent and U.S. Economic Growth.pdf": [
+      "Labour Markets & Technology",
+      "Gender Inequality & Labour"
+    ],
+    "Hufe et al. - 2015 - Inequality of income acquisition the role of childhood circumstances.pdf": [
+      "Inequality of Opportunity",
+      "Intergenerational Mobility"
+    ],
+    "Hufe et al. - 2017 - Inequality of income acquisition the role of childhood circumstances.pdf": [
+      "Inequality of Opportunity",
+      "Intergenerational Mobility"
+    ],
+    "Hufe, Kanbur, Peichl - 2020 - Measuring Unfair Inequality Reconciling Equality of Opportunity and Freedom from Poverty.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution",
+      "Fairness & Social Preferences"
+    ],
+    "Hufe, Peichl - 2019 - Beyond Equal Rights Equality of Opportunity in Political Participation.pdf": [
+      "Inequality of Opportunity",
+      "Political Economy & Populism"
+    ],
+    "Hällsten, Pfeffer - 2017 - Grand Advantage Family Wealth and Grandchildren’s Educational Achievement in Sweden.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Igual, Seguí - 2017 - Introduction to Data Science A Python Approach to Concepts, Techniques and Applications.pdf": [
+      "AI, Algorithms & Fairness"
+    ],
+    "Inglehart, Norris - 2016 - Trump, Brexit, and the Rise of Populism Economic Have-Nots and Cultural Backlash.pdf": [
+      "Political Economy & Populism"
+    ],
+    "Jaeger, Daniele Paserman - 2008 - The cycle of violence An empirical analysis of fatalities in the Palestinian-Israeli conflict.pdf": [],
+    "Jaffray - 1975 - Existence of a Continuous Utility Function An Elementary Proof.pdf": [
+      "Utility Theory & Welfare Economics",
+      "Mathematical Topology & Misc"
+    ],
+    "James et al. - 2013 - An Introduction to Statistical Learning with Applications in R.pdf": [
+      "AI, Algorithms & Fairness"
+    ],
+    "Jenkins - 2019 - Better off Distributional comparisons for ordinal data about personal well-being.pdf": [
+      "Income Inequality & Redistribution",
+      "Utility Theory & Welfare Economics"
+    ],
+    "Kalecki - 1943 - Political Aspects of Full Employment.pdf": [
+      "Political Economy & Populism",
+      "Labour Markets & Technology"
+    ],
+    "Kanbur, Wagstaff - 2016 - How Useful Is Inequality of Opportunity as a Policy Construct(2).pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Kanbur, Wagstaff - 2016 - How Useful Is Inequality of Opportunity as a Policy Construct.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Kang, Chen - 2009 - Effects of an irregular bedtime schedule on sleep quality, daytime sleepiness, and fatigue among university students.pdf": [],
+    "Karabarbounis, Neiman - 2014 - The Global Decline of the Labor Share.pdf": [
+      "Labour Markets & Technology",
+      "Income Inequality & Redistribution"
+    ],
+    "Kauder - 1953 - Genesis of the Marginal Utility Theory From Aristotle to the End of the Eighteenth Century.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Khan, Uyanık - 2020 - The Yannelis – Prabhakar Theorem on Upper Semi-Continuous Selections in Paracompact Spaces Extensions and Appli.pdf": [
+      "Mathematical Topology & Misc",
+      "Utility Theory & Welfare Economics"
+    ],
+    "Killewald, Pfeffer, Schachner - 2017 - Wealth Inequality and Accumulation.pdf": [],
+    "Kirby - 2016 - LEADING PEOPLE 2016 The educational backgrounds of the UK professional elite through education.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Income Inequality & Redistribution"
+    ],
+    "Kirchberg, Prieto - 2015 - Inequality of Opportunity in Spain a Parametric Approach.pdf": [
+      "Intergenerational Mobility"
+    ],
+    "Klasen, Lamanna - 2003 - The Impact of Gender Inequality in Education and Employment on Economic Growth in the Middle East and North Afr.pdf": [
+      "Inequality of Opportunity",
+      "Intergenerational Mobility"
+    ],
+    "Klasen, Lamanna - 2009 - The Impact of Gender Inequality in Education and Employment on Economic Growth New Evidence for a Panel of Coun.pdf": [
+      "Gender Inequality & Labour",
+      "Income Inequality & Redistribution"
+    ],
+    "Kleven et al. - 2011 - Unwilling or Unable to Cheat Evidence From a Tax Audit Experiment in Denmark.pdf": [
+      "Gender Inequality & Labour",
+      "Income Inequality & Redistribution"
+    ],
+    "Kleven et al. - 2019 - Child Penalties across Countries Evidence and Explanations.pdf": [
+      "Tax & Redistribution Systems"
+    ],
+    "Kleven, Landais, Søgaard - 2018 - Children and Gender Inequality Evidence from Denmark.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Kleven, Landais, Søgaard - 2019 - Children and Gender Inequality Evidence from Denmark(2).pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Kleven, Landais, Søgaard - 2019 - Children and Gender Inequality Evidence from Denmark.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Kobus, Kapera, Peragine - 2019 - A theory of multidimensional equality of opportunity.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Konow - 2000 - Fair shares Accountability and cognitive dissonance in allocation decisions.pdf": [
+      "Fairness & Social Preferences"
+    ],
+    "Kopczuk - 2007 - Bequest and tax planning Evidence from estate tax returns.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Tax & Redistribution Systems"
+    ],
+    "Kotlikoff - 1988 - Intergenerational Transfers and Savings Behavior.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Kotlikoff, Summers - 1981 - The Role of Intergenerational Transfers in Aggregate Capital Accumulation.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Kubota - 2017 - Intergenerational Wealth Elasticity in Japan.pdf": [
+      "Intergenerational Mobility",
+      "Wealth Inequality & Inheritance"
+    ],
+    "Kuznets - 1955 - Economic growth and income inequality.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Köszegi, Rabin - 2010 - Quarterly journal of economics.pdf": [
+      "Utility Theory & Welfare Economics",
+      "Fairness & Social Preferences"
+    ],
+    "Lackner - 2016 - Gender differences in competitiveness.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Lakner, Milanovic - 2013 - Global Income Distribution From the Fall of Berlin Wall to the Great Recession.pdf": [
+      "Income Inequality & Redistribution",
+      "Inequality of Opportunity"
+    ],
+    "Lakner, Milanovic - 2015 - Global income distribution from the fall of the Berlin Wall to the Great Recession.pdf": [
+      "Income Inequality & Redistribution",
+      "Inequality of Opportunity"
+    ],
+    "Landersø, Heckman - 2017 - The Scandinavian Fantasy The Sources of Intergenerational Mobility in Denmark and the US.pdf": [
+      "Intergenerational Mobility"
+    ],
+    "Lange - 1934 - The Determinateness of the Utility Function.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Lechene, Pendakur, Wolf - 2019 - OLS estimation of the intra-household distribution of consumption.pdf": [
+      "Gender Inequality & Labour",
+      "Econometric Methods"
+    ],
+    "Lee - 2003 - Self-Selection.pdf": [
+      "Econometric Methods"
+    ],
+    "Lee, Seshadri - 2019 - On the intergenerational transmission of economic status.pdf": [
+      "Intergenerational Mobility"
+    ],
+    "Lefranc, Pistolesi, Trannoy - 2009 - Equality of opportunity and luck Definitions and testable conditions, with an application to income.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Lewin - 1996 - Economics and Psychology Lessons for Our Own Day From the Early Twentieth Century.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Loecker, Eeckhout, Unger - 2020 - The Rise of Market Power and the Macroeconomic Implications.pdf": [
+      "Labour Markets & Technology"
+    ],
+    "Lucas Jr. - 2003 - Macroeconomic Priorities.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Mahler, Ramos - 2019 - Equality of Opportunity in Four Measures of Well-Being.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Marrero et al. - 2010 - Working Paper Series Inequality of opportunity and growth Inequality of opportunity and growth.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Marrero, Rodríguez - 2012 - Inequality of Opportunity in Europe.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Marrero, Rodríguez - 2013 - Inequality of opportunity and growth.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Marrero, Rodríguez - 2019 - Inequality and growth The cholesterol hypothesis.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Marrero, Rodríguez, van der Weide - 2016 - Unequal Opportunity, Unequal Growth.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Martín, Garvi - 2009 - Gender Inequality and Economic Growth in Spain An Exploratory Analysis.pdf": [
+      "Gender Inequality & Labour",
+      "Income Inequality & Redistribution"
+    ],
+    "Mas-Colell - 1986 - The Price Equilibrium Existence Problem in Topological Vector Lattices.pdf": [
+      "Mathematical Topology & Misc"
+    ],
+    "Matoba et al. - 2020 - GWAS of 165,084 Japanese individuals identified nine loci associated with dietary habits.pdf": [],
+    "Mehta - 1985 - Countinuous utility functions.pdf": [
+      "Utility Theory & Welfare Economics",
+      "Mathematical Topology & Misc"
+    ],
+    "Mehta - 1991 - The Euclidean Distance Approach to Continuous Utility Functions.pdf": [
+      "Utility Theory & Welfare Economics",
+      "Mathematical Topology & Misc"
+    ],
+    "Milanovic - 2015 - Global Inequality of Opportunity How Much of Our Income Is Determined by Where We Live.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Mills, Zandvakili - 1997 - Statistical Inference Via Bootstrapping.pdf": [
+      "Income Inequality & Redistribution",
+      "Econometric Methods"
+    ],
+    "Mitchell et al. - 1993 - Judgments of social justice Compromises between equality and efficiency.pdf": [
+      "Fairness & Social Preferences"
+    ],
+    "Modigliani - 1986 - Life Cycle, Individual Thrift, and the Wealth of Nations.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Modigliani - 1986 - Life cycle, individual thrift, and the wealth of nations. Novel Lecture.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Modigliani - 1988 - The Role of Intergenerational Transfers and Life Cycle Saving in the Accumulation of Wealth.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Monteiro - 1987 - Some results on the existence of utility functions on path connected spaces.pdf": [
+      "Utility Theory & Welfare Economics",
+      "Mathematical Topology & Misc"
+    ],
+    "Monteiro - 1994 - A concretization of Mas-Colell and Zame’s counter-example.pdf": [
+      "Mathematical Topology & Misc",
+      "Utility Theory & Welfare Economics"
+    ],
+    "Moramarco - 2020 - Review of Matthew D. Adler, Measuring Social Welfare An Introduction.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Moramarco, Palmisano, Peragine - 2020 - Intertemporal inequality of opportunity.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Moreno-Ternero - 2007 - On the design of equal-opportunity policies.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Moreno-Ternero, Roemer - 2006 - Impartiality, priority, and solidarity in the theory of justice.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Moreno-Ternero, Roemer - 2008 - The veil of ignorance violates priority.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Moreno-Ternero, Roemer - 2012 - A common ground for resource and welfare egalitarianism.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Moscati - 2013 - How cardinal utility entered economic analysis 1909-1944.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Moscati - 2013 - Were Jevons, Menger, and Walras Really Cardinalists On the Notion of Measurement in Utility Theory, Psychology, Mathema.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Mudrazija - 2014 - The balance of intergenerational family transfers A life-cycle perspective.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Nawata - 1994 - Estimation of sample selection bias models by the maximum likelihood estimator and Heckman's two-step estimator.pdf": [
+      "Econometric Methods"
+    ],
+    "Neves, Silva - 2014 - Inequality and growth Uncovering the main Conclusions from the empirics.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Nickerson, Solomon - 2020 - Car Seats as Contraception.pdf": [],
+    "Niehues, Peichl - 2014 - Upper bounds of inequality of opportunity Theory and evidence for Germany and the US.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Nolan et al. - 2020 - The Wealth of Families The Intergenerational Transmission of Wealth in Britain in Comparative Perspective.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "OECD - 2016 - Health at a Glance Europe 2016.pdf": [],
+    "Oecd - 2013 - Gender equality and women’s rights in the post-2015 agenda A foundation for sustainable development.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Olivetti, Paserman - 2015 - In the name of the son (and the daughter) Intergenerational mobility in the United States, 1850-1940.pdf": [
+      "Intergenerational Mobility"
+    ],
+    "Ostry, Berg, Tsangarides - 2014 - Redistribution, Inequality, and Growth.pdf": [
+      "Income Inequality & Redistribution",
+      "Tax & Redistribution Systems"
+    ],
+    "Palomino et al. - 2020 - Wealth Inequality, Intergenerational Transfers and Socioeconomic Background.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility",
+      "Inequality of Opportunity"
+    ],
+    "Palomino, Marrero, Rodríguez - 2019 - Channels of Inequality of Opportunity The Role of Education and Occupation in Europe(2).pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Palomino, Marrero, Rodríguez - 2019 - Channels of Inequality of Opportunity The Role of Education and Occupation in Europe.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Palomino, Rodríguez, Marrero - 2017 - Inheritances and inequality of opportunity in wealth.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Inequality of Opportunity"
+    ],
+    "Papageorge, Thom - 2018 - Genes, Education, and Labor Market Outcomes Evidence From the Health and Retirement Study.pdf": [
+      "Labour Markets & Technology",
+      "Intergenerational Mobility"
+    ],
+    "Papageorge, Thom - 2019 - Genes, Education, and Labor Market Outcomes Evidence from the Health and Retirement Study.pdf": [
+      "Labour Markets & Technology",
+      "Intergenerational Mobility"
+    ],
+    "Peichl, Ungerer - 2016 - Accounting for the spouse when measuring inequality of opportunity.pdf": [
+      "Inequality of Opportunity",
+      "Gender Inequality & Labour"
+    ],
+    "Peragine - 2002 - Opportunity egalitarianism and income inequality.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Peragine, Bussolo, Checchi - 2019 - Long-term evolution of inequality of opportunity.pdf": [
+      "Inequality of Opportunity",
+      "Intergenerational Mobility"
+    ],
+    "Pew Research Centre - 2011 - The American-Western European Values Gap.pdf": [
+      "Political Economy & Populism",
+      "Fairness & Social Preferences"
+    ],
+    "Pignataro - 2012 - Equality Of Opportunity Policy and measurement paradigms.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Piketty - 1995 - Social Mobility and Redistributive Politics.pdf": [
+      "Intergenerational Mobility",
+      "Political Economy & Populism",
+      "Income Inequality & Redistribution"
+    ],
+    "Piketty - 2011 - On the long-run evolution of inheritance France 1820-2050.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Piketty, Postel-Vinay, Rosenthal - 2006 - Wealth concentration in a developing economy Paris and France, 1807-1994.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Piketty, Postel-Vinay, Rosenthal - 2014 - Inherited vs self-made wealth Theory & evidence from a rentier society (Paris 1872-1927).pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Piketty, Saez - 2013 - A Theory of Optimal Inheritance Taxation.pdf": [
+      "Tax & Redistribution Systems",
+      "Wealth Inequality & Inheritance"
+    ],
+    "Piketty, Saez, Zucman - 2013 - Rethinking capital and wealth taxation.pdf": [
+      "Tax & Redistribution Systems",
+      "Wealth Inequality & Inheritance",
+      "Income Inequality & Redistribution"
+    ],
+    "Piketty, Zucman - 2014 - Capital is Back Wealth-Income Ratios in Rich Countries 1700-2010.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Income Inequality & Redistribution"
+    ],
+    "Piketty, Zucman - 2015 - Wealth and inheritance in the long run.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Intergenerational Mobility"
+    ],
+    "Piraino, Bloise, Brunori - 2020 - Estimating intergenerational income mobility on sub-optimal data a machine learning approach.pdf": [
+      "Intergenerational Mobility",
+      "AI, Algorithms & Fairness"
+    ],
+    "Pirog - 2014 - The art and science of scholarly publishing.pdf": [],
+    "Polavieja - 2020 - Grandes Datos, Grandes Sesgos, Grandes Errores Sobre el Atlas de Oportunidades.pdf": [
+      "AI, Algorithms & Fairness",
+      "Inequality of Opportunity"
+    ],
+    "Poore, Nemecek - 2018 - Reducing food's environmental impacts through producers and consumers.pdf": [],
+    "Pugh - 2002 - Real mathematical analysis.pdf": [
+      "Mathematical Topology & Misc"
+    ],
+    "Puhani - 2000 - The Heckman correction for sample selection and its critique.pdf": [
+      "Econometric Methods"
+    ],
+    "Quinto, Hospido, Sanz - 2020 - The child penalty in Spain.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Quéré et al. - 2020 - Temporary reduction in daily global CO2 emissions during the COVID-19 forced confinement.pdf": [],
+    "Raj Chetty, Nathaniel Hendren, Patrick Kline - 2007 - Where is the Land of Opportunity The Geography of Intergenerational Mobility in th.pdf": [
+      "Intergenerational Mobility",
+      "Neighbourhoods & Social Mobility"
+    ],
+    "Ramos, Van de gaer - 2016 - Approaches To Inequality of Opportunity Principles, Measures and Evidence(2).pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Ramos, Van de gaer - 2016 - Approaches To Inequality of Opportunity Principles, Measures and Evidence.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Ramos, Van de gaer - 2017 - Is Inequality of Opportunity Robust to the Measurement Approach.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Ramos, Van de gaer - 2020 - Is Inequality of Opportunity Robust to the Measurement Approach.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Redding, Rossi-Hansberg - 2017 - Quantitative Spatial Economics.pdf": [],
+    "Ricci - 2016 - Perceived Social Position and Income Inequality Evidence from Europe and the United States.pdf": [
+      "Income Inequality & Redistribution",
+      "Fairness & Social Preferences"
+    ],
+    "Roberts, Dunbar - 2015 - Managing Relationship Decay Network, Gender, and Contextual Effects.pdf": [],
+    "Roemer - 1993 - A Pragmatic Theory of Responsibility for the Egalitarian Planner.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Roemer - 1998 - Equality of Opportunity.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Roemer - 2014 - Economic development as opportunity equalization.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Roemer - 2014 - Kantian optimization A microfoundation for cooperation.pdf": [
+      "Fairness & Social Preferences"
+    ],
+    "Roemer, Trannoy - 2015 - Equality of Opportunity.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Roemer, Trannoy - 2016 - Equality of Opportunity Theory and Measurement.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Roemer, Ünveren - 2016 - Dynamic Equality of Opportunity.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Roodman - 2009 - How to do xtabond2 An introduction to difference and system GMM in Stata.pdf": [
+      "Econometric Methods"
+    ],
+    "Rozanski et al. - 2019 - Association of Optimism With Cardiovascular Events and All-Cause Mortality A Systematic Review and Meta-analysi.pdf": [],
+    "Ryszard Wójcik - 2000 - The generalized Aron-Maestre comb.pdf": [
+      "Mathematical Topology & Misc"
+    ],
+    "Saez, Zucman - 2016 - Wealth Inequality in the United States since 1913 Evidence from Capitalized Income Tax Data.pdf": [
+      "Wealth Inequality & Inheritance",
+      "Income Inequality & Redistribution",
+      "Tax & Redistribution Systems"
+    ],
+    "Sala-I-Martin - 2016 - I Just Ran Two Million Regressions.pdf": [
+      "Econometric Methods"
+    ],
+    "Samuelson - 1938 - A Note on the Pure Theory of Consumer's Behaviour.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Sandbu - 2018 - The economic roots of Trumpism.pdf": [
+      "Political Economy & Populism"
+    ],
+    "Sc - Unknown - No Title.pdf": [],
+    "Schmeidler - 1971 - A Condition for the Completeness of Partial Preference Relations.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Semykina, Wooldridge - 2010 - Estimating panel data models in the presence of endogeneity and selection.pdf": [
+      "Econometric Methods"
+    ],
+    "Semykina, Wooldridge - 2013 - ESTIMATION OF DYNAMIC PANEL DATA MODELS WITH SAMPLE SELECTION.pdf": [
+      "Econometric Methods"
+    ],
+    "Sen - 1967 - Isolation, Assurance and the Social Rate of Discount.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Sen - 1980 - Equality of what.pdf": [
+      "Inequality of Opportunity",
+      "Utility Theory & Welfare Economics"
+    ],
+    "Shorrocks - 1980 - The Class of Additively Decomposable Inequality Measures.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Shorrocks - 2013 - Decomposition procedures for distributional analysis A unified framework based on the Shapley value.pdf": [
+      "Income Inequality & Redistribution",
+      "Econometric Methods"
+    ],
+    "Simon - 2001 - A Connected, not Separably Connected Metric Space.pdf": [
+      "Mathematical Topology & Misc"
+    ],
+    "Singh - 2012 - Inequality of opportunity in earnings and consumption expenditure The case of Indian men.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Smith - 1759 - The Theory of Moral Sentiments.pdf": [
+      "Fairness & Social Preferences",
+      "Utility Theory & Welfare Economics"
+    ],
+    "Smith - 1776 - An Inquiry into the Nature and Causes of the Wealth of Nations.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Smith, Naylor - 2001 - Determinants of degree performance in UK universities a statistical analysis of the 1993 student cohort.pdf": [],
+    "Solt - 2016 - The Standardized World Income Inequality Database.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Starmans, Sheskin, Bloom - 2017 - Why people prefer unequal societies.pdf": [
+      "Fairness & Social Preferences",
+      "Income Inequality & Redistribution"
+    ],
+    "Steen, Seebach - 1970 - Counterexamples in Topology.pdf": [
+      "Mathematical Topology & Misc"
+    ],
+    "Stigler - 1937 - The Economics of Carl Menger.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Stigler - 1950 - The Development of Utility Theory. I(2).pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Stigler - 1950 - The Development of Utility Theory. I.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Stigler - 1950 - The Development of Utility Theory. II.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Strotz - 1953 - Cardinal Utility.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Suárez Álvarez - 2017 - Working Paper Series Income inequality and inequality of opportunity in Europe . Are they on the rise ´.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Suárez Álvarez, López Menéndez - 2017 - Assessing Changes Over Time in Inequality of Opportunity The Case of Spain.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Suárez Álvarez, López Menéndez - 2017 - Income inequality and inequality of opportunity in Europe. Are they on the rise.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Suárez Álvarez, López Menéndez - 2018 - Income inequality and inequality of opportunity in europe Are they on the rise.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Suárez Álvarez, López Menéndez - 2018 - Inequality of Opportunity in Developing countries Does the income aggregate matter.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Suárez Álvarez, López Menéndez - 2020 - Inequality and Opportunities in the Spanish Regions The Role of Immigration.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Suárez Álvarez, López Menéndez - 2020 - Trends in Inequality of Opportunity for Developing Countries Does the Economic Indicator Mat.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Sørensen, Tungodden, Sørensen - 2007 - Discussion paper Measuring unfair ( in ) equality BY as.pdf": [
+      "Inequality of Opportunity",
+      "Fairness & Social Preferences"
+    ],
+    "Teso - 2019 - The long-term effect of demographic shocks on the evolution of gender roles Evidence from the transatlantic slave trade.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Teyssier - 2017 - Inequality of Opportunity New Measurement Methodology and Impact on Growth.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "Teyssier - 2017 - Inequality of Opportunity and the Parametric Decomposition of Inequality by Population Subgroups.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "The World Bank - 2006 - World Development Report Equity and Development.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "The World Bank - 2012 - Gender equality in development.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "To, Findings - 2015 - Women, Business and the Law 2016 Getting to Equal.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Trebbi, Mian, Sufi - 2012 - Political constraints in the aftermath of financial crises.pdf": [
+      "Political Economy & Populism"
+    ],
+    "Unknown - 2000 - Klasen Does Gender Inequality Reduce Growth and Development Evidence from Cross-Country Regressions Projektpartner.pdf": [
+      "Gender Inequality & Labour",
+      "Income Inequality & Redistribution"
+    ],
+    "Unknown - 2009 - The Oxford Handbook of Economic Inequality.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Unknown - Unknown - Al 14 L 20 in.pdf": [],
+    "Van de gaer, Martinez, Schokkaert - 1998 - Measuring intergenerational mobility and equality of opportunity.pdf": [
+      "Intergenerational Mobility",
+      "Inequality of Opportunity"
+    ],
+    "Van de gaer, Ramos - 2020 - Measurement of inequality of opportunity based on counterfactuals.pdf": [
+      "Inequality of Opportunity"
+    ],
+    "Varian - 2014 - Big Data New Tricks for Econometrics.pdf": [
+      "AI, Algorithms & Fairness",
+      "Econometric Methods"
+    ],
+    "Voitchovsky - 2005 - Does the profile of income inequality matter for economic growth Distinguishing between the effects of inequality i.pdf": [
+      "Income Inequality & Redistribution"
+    ],
+    "Von Gaudecker - 2015 - How Does Household Portfolio Diversification Vary with Financial Literacy and Financial Advice.pdf": [
+      "Wealth Inequality & Inheritance"
+    ],
+    "Walras - 1909 - Économique et mécanique.pdf": [
+      "Utility Theory & Welfare Economics"
+    ],
+    "Washington - 2019 - How to Argue with an Algorithm Lessons from the COMPAS- ProPublica Debate (Working Draft).pdf": [
+      "AI, Algorithms & Fairness"
+    ],
+    "Wasserman - 2004 - All of Statistics.pdf": [
+      "Econometric Methods"
+    ],
+    "Woetzel et al. - 2015 - The Power of Parity.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Wooldridge - 1995 - Selection corrections for panel data models under conditional mean independence assumptions.pdf": [
+      "Econometric Methods"
+    ],
+    "World Bank - 2005 - World Development Report 2006 Equity and Development.pdf": [
+      "Inequality of Opportunity",
+      "Income Inequality & Redistribution"
+    ],
+    "World Economic Forum - 2015 - The Global Gender Gap Report 2015.pdf": [
+      "Gender Inequality & Labour"
+    ],
+    "Wójcik - 2016 - The generalized Aron-Maestre Comb.pdf": [
+      "Mathematical Topology & Misc"
+    ],
+    "Yang, Schank - 2006 - Women Do Not Synchronize Their Menstrual Cycles.pdf": [],
+    "Young - 1958 - The Rise of the Meritocracy, 1870–2033.pdf": [
+      "Fairness & Social Preferences",
+      "Income Inequality & Redistribution"
+    ],
+    "Zimmerman - 2019 - Elite colleges and upward mobility to top jobs and top incomes†.pdf": [
+      "Intergenerational Mobility",
+      "Neighbourhoods & Social Mobility"
+    ],
+    "de Cabo, Mattson - 2019 - Effects of Intermittent Fasting on Health, Aging, and Disease.pdf": [],
+    "de gaer et al. - 2003 - Three Meanings of Intergenerational Mobility.pdf": [
+      "Intergenerational Mobility",
+      "Inequality of Opportunity"
+    ],
+    "de gaer, Schokkaert, Maartinez - 2003 - Three Meanings of Intergenerational Mobility.pdf": [
+      "Intergenerational Mobility",
+      "Inequality of Opportunity"
+    ]
+  },
+  "unassigned": [
+    "Arruñada, Garicano - 2018 - Blockchain The Birth of Decentralized Governance.pdf",
+    "Banerjee et al. - 2020 - A pause in Southern Hemisphere circulation trends due to the Montreal Protocol.pdf",
+    "Davies et al. - 2019 - UK Chief Medical Officers' Physical Activity Guidelines.pdf",
+    "Dean - 2008 - Statement of interest.pdf",
+    "Dolezal et al. - 2017 - Interrelationship between Sleep and Exercise A Systematic Review.pdf",
+    "Dougherty - 2002 - Who's afraid of Adam Smith How the market got its soul.pdf",
+    "Evensky - 2005 - Adam Smith's Theory of Moral Sentiments On morals and why they matter to a liberal society of free people and free mark.pdf",
+    "Freedman, Pisani, Purves - 2007 - Statistics, 4th Edition(2).pdf",
+    "Freedman, Pisani, Purves - 2007 - Statistics, 4th Edition.pdf",
+    "Ganna et al. - 2019 - Large-scale GWAS reveals insights into the genetic architecture of same-sex sexual behavior.pdf",
+    "Graff Zivin Elizabeth Lyons, Graff Zivin, Lyons - 2020 - The Effects of Prize Structures on Innovative Performance.pdf",
+    "Gómez-Díaz, González-Solís - 2007 - Geographic assignment of seabirds to their origin Combining morphologic, genetic, and biogeochem.pdf",
+    "Harding, Franks, Wisden - 2019 - The temperature dependence of sleep.pdf",
+    "Hinnosaar et al. - 2019 - Wikipedia Matters.pdf",
+    "Jaeger, Daniele Paserman - 2008 - The cycle of violence An empirical analysis of fatalities in the Palestinian-Israeli conflict.pdf",
+    "Kang, Chen - 2009 - Effects of an irregular bedtime schedule on sleep quality, daytime sleepiness, and fatigue among university students.pdf",
+    "Killewald, Pfeffer, Schachner - 2017 - Wealth Inequality and Accumulation.pdf",
+    "Matoba et al. - 2020 - GWAS of 165,084 Japanese individuals identified nine loci associated with dietary habits.pdf",
+    "Nickerson, Solomon - 2020 - Car Seats as Contraception.pdf",
+    "OECD - 2016 - Health at a Glance Europe 2016.pdf",
+    "Pirog - 2014 - The art and science of scholarly publishing.pdf",
+    "Poore, Nemecek - 2018 - Reducing food's environmental impacts through producers and consumers.pdf",
+    "Quéré et al. - 2020 - Temporary reduction in daily global CO2 emissions during the COVID-19 forced confinement.pdf",
+    "Redding, Rossi-Hansberg - 2017 - Quantitative Spatial Economics.pdf",
+    "Roberts, Dunbar - 2015 - Managing Relationship Decay Network, Gender, and Contextual Effects.pdf",
+    "Rozanski et al. - 2019 - Association of Optimism With Cardiovascular Events and All-Cause Mortality A Systematic Review and Meta-analysi.pdf",
+    "Sc - Unknown - No Title.pdf",
+    "Smith, Naylor - 2001 - Determinants of degree performance in UK universities a statistical analysis of the 1993 student cohort.pdf",
+    "Unknown - Unknown - Al 14 L 20 in.pdf",
+    "Yang, Schank - 2006 - Women Do Not Synchronize Their Menstrual Cycles.pdf",
+    "de Cabo, Mattson - 2019 - Effects of Intermittent Fasting on Health, Aging, and Disease.pdf"
+  ],
+  "excluded": [
+    "Sociales, Nif - 2015 - Contrato de trabajo de duracion determinada.pdf",
+    "Formulario - 2014 - Comunicación de datos al pagador 145.pdf",
+    "Economipedia - 2015 - Agencia Tributaria.pdf"
+  ]
+}

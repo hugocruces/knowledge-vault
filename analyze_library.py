@@ -1,13 +1,16 @@
 #!/home/hugo/.local/share/uv/tools/zotero-mcp-server/bin/python3
 """
-analyze_library.py — Phase 1: propose a Zotero collection taxonomy from a folder of PDFs.
+analyze_library.py — Phase 1: propose and assign a Zotero collection taxonomy.
 
-Reads filenames (no PDF text needed), sends the full list to Claude, and
-outputs a proposed collection structure for review before any Zotero writes.
+Step 1 — propose taxonomy:
+    analyze_library.py /path/to/pdfs [--existing-collections]
+    → writes proposed_collections.json  (review and edit this)
 
-Usage:
-    python3 analyze_library.py /path/to/pdfs
-    python3 analyze_library.py /path/to/pdfs --existing-collections  # show current Zotero collections too
+Step 2 — assign every paper to collections:
+    analyze_library.py /path/to/pdfs --assign
+    → reads proposed_collections.json, writes paper_assignments.json  (review and edit this)
+
+Then proceed to Phase 2 (import).
 """
 
 import sys
@@ -87,6 +90,8 @@ def main():
     parser.add_argument("folder", help="Folder containing PDFs")
     parser.add_argument("--existing-collections", action="store_true",
                         help="Fetch and show current Zotero collections")
+    parser.add_argument("--assign", action="store_true",
+                        help="Step 2: assign every paper to collections using proposed_collections.json")
     args = parser.parse_args()
 
     folder = Path(args.folder).expanduser().resolve()
@@ -98,6 +103,12 @@ def main():
     if not ANTHROPIC_KEY:
         print("ERROR: ANTHROPIC_API_KEY not set in .env")
         sys.exit(1)
+
+    client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
+
+    if args.assign:
+        run_assignment(folder, client)
+        return
 
     print(f"Found {len(pdfs)} PDFs in {folder}")
 
@@ -126,7 +137,6 @@ def main():
     )
 
     print("Sending to Claude for taxonomy analysis…\n")
-    client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
     msg = client.messages.create(
         model=CLAUDE_MODEL,
         max_tokens=8192,
@@ -174,6 +184,131 @@ def main():
     out_path.write_text(json.dumps(result, indent=2, ensure_ascii=False))
     print(f"\nFull proposal saved to: {out_path}")
     print("Review it, edit if needed, then we'll use it in Phase 2 to create the collections and import.")
+
+
+ASSIGN_PROMPT = """\
+You are organising an academic library. Below are the approved collections and a numbered \
+list of papers. Assign each paper to one or more collections. A paper MUST be assigned to \
+every collection it genuinely fits — cross-listing is expected and encouraged. \
+Only leave a paper unassigned if it truly fits none.
+
+Collections:
+{collections}
+
+Papers:
+{papers}
+
+Return a JSON object mapping each paper number (as a string) to a list of collection names \
+(exactly as written above). Papers with no fit get an empty list [].
+
+Example:
+{{
+  "1": ["Inequality of Opportunity", "Intergenerational Mobility"],
+  "2": ["Wealth Inequality & Inheritance"],
+  "3": []
+}}
+
+Return ONLY valid JSON, no markdown fences.
+"""
+
+BATCH_SIZE = 80   # papers per Claude call — keeps response well within token limits
+
+
+def run_assignment(folder: Path, client: anthropic.Anthropic) -> None:
+    here = Path(__file__).parent
+    taxonomy_path = here / "proposed_collections.json"
+    if not taxonomy_path.exists():
+        print("ERROR: proposed_collections.json not found. Run without --assign first.")
+        sys.exit(1)
+
+    taxonomy = json.loads(taxonomy_path.read_text())
+    collections = taxonomy.get("collections", [])
+    exclude_files = set(taxonomy.get("exclude", []))
+    col_names = [c["name"] for c in collections]
+
+    col_block = "\n".join(f'- {c["name"]}: {c["description"]}' for c in collections)
+
+    pdfs = sorted(folder.glob("*.pdf"))
+    pdfs = [p for p in pdfs if p.name not in exclude_files]
+    print(f"Assigning {len(pdfs)} papers to {len(col_names)} collections (excluding {len(exclude_files)} files)…")
+
+    # Split into batches
+    batches = [pdfs[i:i + BATCH_SIZE] for i in range(0, len(pdfs), BATCH_SIZE)]
+    all_assignments = {}   # filename → [collection names]
+
+    for b_idx, batch in enumerate(batches):
+        print(f"  Batch {b_idx + 1}/{len(batches)} ({len(batch)} papers)…")
+        parsed = [parse_filename(p.name) for p in batch]
+        paper_lines = "\n".join(
+            f"{i + 1}. [{p['year'] or '?'}] {p['author']} — {p['title']}"
+            for i, p in enumerate(parsed)
+        )
+        prompt = ASSIGN_PROMPT.format(collections=col_block, papers=paper_lines)
+
+        msg = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=4096,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        raw = msg.content[0].text.strip()
+        if raw.startswith("```"):
+            raw = raw.split("```")[1]
+            if raw.startswith("json"):
+                raw = raw[4:]
+
+        try:
+            batch_result = json.loads(raw)
+        except json.JSONDecodeError:
+            print(f"  ERROR: invalid JSON in batch {b_idx + 1}, skipping.")
+            print(raw[:500])
+            continue
+
+        for str_idx, col_list in batch_result.items():
+            paper_idx = int(str_idx) - 1
+            if 0 <= paper_idx < len(batch):
+                filename = batch[paper_idx].name
+                # Validate collection names
+                valid = [c for c in col_list if c in col_names]
+                all_assignments[filename] = valid
+
+    # Pretty-print summary
+    print(f"\n{'='*65}")
+    print(f"PAPER ASSIGNMENTS  ({len(all_assignments)} papers)")
+    print(f"{'='*65}")
+
+    col_counts = {c: 0 for c in col_names}
+    multi = 0
+    unassigned = []
+
+    for fname, cols in sorted(all_assignments.items()):
+        for c in cols:
+            col_counts[c] += 1
+        if len(cols) > 1:
+            multi += 1
+        if not cols:
+            unassigned.append(fname)
+
+    print("\nPapers per collection:")
+    for name, count in col_counts.items():
+        print(f"  {count:>4}  {name}")
+    print(f"\n  {multi} papers assigned to 2+ collections")
+    print(f"  {len(unassigned)} papers unassigned")
+    if unassigned:
+        print("\nUnassigned:")
+        for f in unassigned:
+            print(f"  · {f}")
+
+    # Save
+    out = {
+        "collections": col_names,
+        "assignments": all_assignments,
+        "unassigned": unassigned,
+        "excluded": list(exclude_files),
+    }
+    out_path = here / "paper_assignments.json"
+    out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False))
+    print(f"\nSaved to: {out_path}")
+    print("Review and edit assignments, then proceed to Phase 2 import.")
 
 
 if __name__ == "__main__":
