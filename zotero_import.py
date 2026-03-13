@@ -217,15 +217,7 @@ def enrich_with_crossref(meta: dict) -> dict:
     hit = crossref_lookup(title, first_author)
 
     if not hit:
-        print("  CrossRef: no confident match — trying Semantic Scholar…")
-        ss = semantic_scholar_lookup(title)
-        if ss:
-            doi = (ss.get("externalIds") or {}).get("DOI")
-            if doi and not meta.get("doi"):
-                meta["doi"] = doi
-            if not meta.get("abstract") and ss.get("abstract"):
-                meta["abstract"] = ss["abstract"]
-            print(f"  Semantic Scholar: DOI={doi}")
+        print("  CrossRef: no confident match.")
         return meta
 
     # Merge CrossRef fields
