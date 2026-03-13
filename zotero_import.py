@@ -157,7 +157,7 @@ def crossref_lookup(title: str, first_author_last: str = "") -> dict | None:
     params = {
         "query.title": title,
         "rows": 1,
-        "select": "DOI,title,author,issued,container-title,volume,issue,page,"
+        "select": "DOI,title,score,author,issued,container-title,volume,issue,page,"
                   "publisher,ISBN,ISSN,abstract,type",
     }
     if first_author_last:
