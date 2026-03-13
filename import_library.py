@@ -387,16 +387,19 @@ def main():
         name_to_key = {n: f"DRYRUN-{i}" for i, n in enumerate(col_names_all)}
     print(f"  {len(name_to_key)} collections ready.")
 
-    # Build PDF list
+    # Build PDF list: always retry failed, skip done/skipped
     all_pdfs = sorted(folder.glob("*.pdf"))
     pdfs = [p for p in all_pdfs
             if p.name not in excluded
-            and p.name not in done_set
-            and p.name not in skipped_set]
+            and (p.name in failed_set
+                 or (p.name not in done_set and p.name not in skipped_set))]
 
-    total     = len(all_pdfs)
+    total      = len(all_pdfs)
     excluded_n = len([p for p in all_pdfs if p.name in excluded])
-    already   = len(done_set) + len(skipped_set)
+    already    = len([p for p in all_pdfs
+                      if p.name not in excluded
+                      and p.name not in failed_set
+                      and (p.name in done_set or p.name in skipped_set)])
     print(f"\n{total} PDFs total | {excluded_n} excluded | {already} already done | {len(pdfs)} to process\n")
 
     counts = {"ok": 0, "duplicate": 0, "failed": 0}
