@@ -1,0 +1,307 @@
+{
+  "collections": [
+    {
+      "name": "Inequality of Opportunity",
+      "description": "Theoretical frameworks, measurement approaches, and empirical applications of equality of opportunity and inequality of opportunity in income, wealth, and other outcomes.",
+      "representative_titles": [
+        "Measuring long-term inequality of opportunity",
+        "The Measurement of Inequality of Opportunity Theory and an Application to Latin America",
+        "Equality of Opportunity Theory and Evidence",
+        "Approaches To Inequality of Opportunity Principles, Measures and Evidence",
+        "Inequality of opportunity in Italy",
+        "Upward and Downward Bias When Measuring Inequality of Opportunity",
+        "Ex Ante Versus Ex Post Equality of Opportunity",
+        "Ramos, Van de gaer — Is Inequality of Opportunity Robust to the Measurement Approach"
+      ],
+      "estimated_count": 85
+    },
+    {
+      "name": "Intergenerational Mobility",
+      "description": "Studies on the transmission of income, wealth, education, and social status across generations, including mobility measurement and determinants.",
+      "representative_titles": [
+        "Income Inequality, Equality of Opportunity, and Intergenerational Mobility",
+        "Where is the Land of Opportunity The Geography of Intergenerational Mobility in the United States",
+        "The fading American dream Trends in absolute income mobility since 1940",
+        "Intergenerational Wealth Mobility and the Role of Inheritance Evidence from Multiple Generations",
+        "The Opportunity Atlas Mapping the Childhood Roots of Social Mobility",
+        "Intergenerational Wealth Formation over the Life Cycle Evidence from Danish Wealth Records 1984-2013",
+        "Three Meanings of Intergenerational Mobility",
+        "Lee, Seshadri — On the intergenerational transmission of economic status"
+      ],
+      "estimated_count": 45
+    },
+    {
+      "name": "Wealth Inequality & Inheritance",
+      "description": "Research on the distribution of wealth, its concentration, intergenerational transfers, bequests, and estate taxation.",
+      "representative_titles": [
+        "Wealth Inequality in the United States since 1913 Evidence from Capitalized Income Tax Data",
+        "Top wealth shares in the UK over more than a century",
+        "Inheritance and wealth inequality Evidence from population registers",
+        "Capital is Back Wealth-Income Ratios in Rich Countries 1700-2010",
+        "Wealth and inheritance in the long run",
+        "On the Share of Inheritance in Aggregate Wealth Europe and the USA, 1900–2010",
+        "Born with a Silver Spoon Danish Evidence on Wealth Inequality in Childhood",
+        "Wealth inequality and intergenerational links"
+      ],
+      "estimated_count": 55
+    },
+    {
+      "name": "Income Inequality & Redistribution",
+      "description": "Papers on income distribution, inequality measurement, redistributive policies, and the relationship between inequality and economic growth.",
+      "representative_titles": [
+        "On the Measurement of Income Inequality",
+        "Inequality of opportunity and growth",
+        "Redistribution, Inequality, and Growth",
+        "Trends in Income Inequality and its Impact on Economic Growth",
+        "Global Income Distribution From the Fall of Berlin Wall to the Great Recession",
+        "The Class of Additively Decomposable Inequality Measures",
+        "Inequality and growth The cholesterol hypothesis",
+        "Growth effects of inequality and redistribution What are the transmission channels"
+      ],
+      "estimated_count": 40
+    },
+    {
+      "name": "Gender Inequality & Labour",
+      "description": "Studies on gender wage gaps, gender roles, female labour market participation, child penalties, and policy implications for gender equality.",
+      "representative_titles": [
+        "The Gender Wage Gap Extent, Trends, and Explanations",
+        "Children and Gender Inequality Evidence from Denmark",
+        "A grand gender convergence Its last chapter",
+        "The child penalty in Spain",
+        "Gender Identity and Relative Income within Households",
+        "Catalyst for Change Empowering Women and Tackling Income Inequality",
+        "The Impact of Gender Inequality in Education and Employment on Economic Growth New Evidence for a Panel of Coun",
+        "Kleven et al. — Child Penalties across Countries Evidence and Explanations"
+      ],
+      "estimated_count": 30
+    },
+    {
+      "name": "Tax & Redistribution Systems",
+      "description": "Papers on taxation, tax evasion, optimal tax design, tax policy, and redistribution mechanisms including inheritance and wealth taxes.",
+      "representative_titles": [
+        "Tax evasion and inequality",
+        "A Theory of Optimal Inheritance Taxation",
+        "Rethinking capital and wealth taxation",
+        "Unwilling or Unable to Cheat Evidence From a Tax Audit Experiment in Denmark",
+        "Paraísos Fiscales, Wealth Taxation, and Mobility",
+        "Salience and taxation Theory and evidence",
+        "Bequest and tax planning Evidence from estate tax returns",
+        "Redistribution mechanisms based on individual characteristics"
+      ],
+      "estimated_count": 20
+    },
+    {
+      "name": "Fairness & Social Preferences",
+      "description": "Theoretical and experimental work on fairness norms, social preferences, redistributive attitudes, and justice perceptions.",
+      "representative_titles": [
+        "A Theory of Fairness, Competition and Cooperation",
+        "Fairness and Redistribution",
+        "Responsibility for what Fairness and individual responsibility",
+        "Equity theory and fair inequality A neuroeconomic study",
+        "Social preferences, self-interest, and the demand for redistribution",
+        "Measuring unfair (in)equality",
+        "Why people prefer unequal societies",
+        "Belief in a just world and redistributive politics"
+      ],
+      "estimated_count": 25
+    },
+    {
+      "name": "AI, Algorithms & Fairness",
+      "description": "Papers on machine learning methods, algorithmic fairness, bias in predictive models, and AI applications in economic and social contexts.",
+      "representative_titles": [
+        "Machine Learning Methods Economists Should Know About",
+        "Fairness in Criminal Justice Risk Assessments The State of the Art",
+        "Equality of Opportunity in Supervised Learning",
+        "A Moral Framework for Understanding of Fair ML through Economic Models of Equality of Opportunity",
+        "The roots of inequality Estimating inequality of opportunity from regression trees",
+        "Fair Prediction with Disparate Impact A Study of Bias in Recidivism Prediction Instruments",
+        "How to Argue with an Algorithm Lessons from the COMPAS- ProPublica Debate",
+        "The Evolution of Inequality of Opportunity in Germany A Machine Learning Approach"
+      ],
+      "estimated_count": 15
+    },
+    {
+      "name": "Labour Markets & Technology",
+      "description": "Research on labour market outcomes, skills, automation, technological change, superstar firms, and the future of work.",
+      "representative_titles": [
+        "Skills, tasks and technologies Implications for employment and earnings",
+        "Automation and new tasks How technology displaces and reinstates labor",
+        "The fall of the labor share and the rise of superstar firms",
+        "The China syndrome Local labor market effects of import competition in the United States",
+        "The Global Decline of the Labor Share",
+        "The Rise of Market Power and the Macroeconomic Implications",
+        "The Allocation of Talent and U.S. Economic Growth",
+        "Who Becomes An Inventor In America The Importance Of Exposure To Innovation"
+      ],
+      "estimated_count": 20
+    },
+    {
+      "name": "Political Economy & Populism",
+      "description": "Papers on political economy, populism, trust in government, redistribution preferences, and the political consequences of inequality.",
+      "representative_titles": [
+        "The European Trust Crisis and the Rise of Populism",
+        "Trump, Brexit, and the Rise of Populism Economic Have-Nots and Cultural Backlash",
+        "Going to extremes Politics after financial crises, 1870–2014",
+        "Testing Theories of American Politics Elites, Interest Groups, and Average Citizens",
+        "The Danger of Deconsolidation The Democratic Disconnect",
+        "Social Mobility and Redistributive Politics",
+        "Intergenerational Mobility and Preferences for Redistribution",
+        "Positional deprivation and support for radical right and radical left parties"
+      ],
+      "estimated_count": 18
+    },
+    {
+      "name": "Utility Theory & Welfare Economics",
+      "description": "Classical and modern contributions to utility measurement, welfare economics, preference representation, and cardinal versus ordinal utility debates.",
+      "representative_titles": [
+        "The Meaning of Utility Measurement",
+        "The Development of Utility Theory. I",
+        "Representation of a preference ordering by a numerical function",
+        "Cardinal Utility",
+        "Classic and Current Notions of Measurable Utility",
+        "Fairness, Responsibility, and Welfare",
+        "On the Currency of Egalitarian Justice",
+        "Equality of what"
+      ],
+      "estimated_count": 30
+    },
+    {
+      "name": "Econometric Methods",
+      "description": "Methodological papers on panel data econometrics, sample selection, GMM estimation, and related empirical methods.",
+      "representative_titles": [
+        "The credibility revolution in empirical economics How better research design is taking the con out of economet",
+        "Sample Selection Bias as a Specification Error",
+        "Dynamic Panel Data Models A Guide to Micro Data Methods and Practice",
+        "How to do xtabond2 An introduction to difference and system GMM in Stata",
+        "Estimating panel data models in the presence of endogeneity and selection",
+        "Another Look at the Instrumental Variable Estimation of Error-Component Models",
+        "The Heckman correction for sample selection and its critique",
+        "Decomposition procedures for distributional analysis A unified framework based on the Shapley value"
+      ],
+      "estimated_count": 25
+    },
+    {
+      "name": "Neighbourhoods & Social Mobility",
+      "description": "Papers on neighbourhood effects, place-based policies, housing, and the role of local environment on children's outcomes and mobility.",
+      "representative_titles": [
+        "The Impacts of Neighborhoods on Intergenerational Mobility I Childhood Exposure Effects",
+        "The impacts of neighborhoods on intergenerational mobility II county-level estimates",
+        "The Effects of Exposure to Better Neighborhoods on Children New Evidence from the Moving to Opportunity E",
+        "Moved to opportunity The long-run effects of public housing demolition on children",
+        "Race and economic opportunity in the United States An intergenerational perspective",
+        "The Association Between Income and Life Expectancy in the United States, 2001–2014",
+        "Elite colleges and upward mobility to top jobs and top incomes",
+        "The Effects of Police Violence on Inner-City Students"
+      ],
+      "estimated_count": 15
+    },
+    {
+      "name": "Mathematical Topology & Misc",
+      "description": "Papers on mathematical topology, connected spaces, and other purely technical mathematical topics not related to economics.",
+      "representative_titles": [
+        "A connected metric space that is not serapably connected",
+        "Ordered topological spaces",
+        "Existence of a Continuous Utility Function An Elementary Proof",
+        "Countinuous utility functions",
+        "The generalized Aron-Maestre comb",
+        "Spaces that are connected but not path-connected",
+        "A Connected, not Separably Connected Metric Space",
+        "Some results on representation and extension of preferences"
+      ],
+      "estimated_count": 20
+    }
+  ],
+  "exclude": [
+    "Formulario - 2014 - Comunicación de datos al pagador 145.pdf",
+    "Economipedia - 2015 - Agencia Tributaria.pdf",
+    "Sociales, Nif - 2015 - Contrato de trabajo de duracion determinada.pdf"
+  ],
+  "outliers": [
+    "A pause in Southern Hemisphere circulation trends due to the Montreal Protocol",
+    "Temporary reduction in daily global CO2 emissions during the COVID-19 forced confinement",
+    "Geographic assignment of seabirds to their origin Combining morphologic, genetic, and biogeochem",
+    "UK Chief Medical Officers' Physical Activity Guidelines",
+    "The temperature dependence of sleep",
+    "Effects of an irregular bedtime schedule on sleep quality, daytime sleepiness, and fatigue among university students",
+    "Interrelationship between Sleep and Exercise A Systematic Review",
+    "Association of Optimism With Cardiovascular Events and All-Cause Mortality A Systematic Review and Meta-analysi",
+    "Reducing food's environmental impacts through producers and consumers",
+    "GWAS of 165,084 Japanese individuals identified nine loci associated with dietary habits",
+    "Large-scale GWAS reveals insights into the genetic architecture of same-sex sexual behavior",
+    "Effects of Intermittent Fasting on Health, Aging, and Disease",
+    "Women Do Not Synchronize Their Menstrual Cycles",
+    "Managing Relationship Decay Network, Gender, and Contextual Effects",
+    "Car Seats as Contraception",
+    "Mujer, empresa y el derecho 2020",
+    "Statement of interest",
+    "No Title",
+    "Al 14 L 20 in",
+    "The art and science of scholarly publishing",
+    "Blockchain The Birth of Decentralized Governance",
+    "Wikipedia Matters",
+    "3G Internet and Confidence in Government",
+    "The cycle of violence An empirical analysis of fatalities in the Palestinian-Israeli conflict",
+    "Political constraints in the aftermath of financial crises",
+    "Quantitative Spatial Economics",
+    "Economic Report of the President",
+    "Macroeconomic Priorities",
+    "Political Aspects of Full Employment",
+    "I Just Ran Two Million Regressions",
+    "Big Data New Tricks for Econometrics",
+    "Real mathematical analysis",
+    "All of Statistics",
+    "The Elements of Statistical Learning",
+    "An Introduction to Statistical Learning with Applications in R",
+    "Statistics, 4th Edition",
+    "Statistics, 4th Edition(2)",
+    "Introduction to Data Science A Python Approach to Concepts, Techniques and Applications",
+    "Grandes Datos, Grandes Sesgos, Grandes Errores Sobre el Atlas de Oportunidades",
+    "The generalized Aron-Maestre Comb",
+    "Espacios separablemente conexos",
+    "The Yannelis – Prabhakar Theorem on Upper Semi-Continuous Selections in Paracompact Spaces Extensions and Appli",
+    "A concretization of Mas-Colell and Zame's counter-example",
+    "The Price Equilibrium Existence Problem in Topological Vector Lattices",
+    "Strictly monotonic preferences on continuum of goods commodity spaces",
+    "Continuous Preference Orderings Representable By Utility Functions",
+    "Some results on the existence of utility functions on path connected spaces",
+    "Existence of equilibria in economies with infinitely many commodities",
+    "Arbitrage, Factor Structure, and Mean-Variance Analysis on Large Asset Markets",
+    "The Euclidean Distance Approach to Continuous Utility Functions",
+    "Countinuous utility functions",
+    "Economic Theory in Retrospect",
+    "Who's afraid of Adam Smith How the market got its soul",
+    "Adam Smith's Theory of Moral Sentiments On morals and why they matter to a liberal society of free people and free mark",
+    "The Theory of Moral Sentiments",
+    "An Inquiry into the Nature and Causes of the Wealth of Nations",
+    "Genesis of the Marginal Utility Theory From Aristotle to the End of the Eighteenth Century",
+    "Aristotle and the Development of Value Theory",
+    "The Economics of Carl Menger",
+    "Were Jevons, Menger, and Walras Really Cardinalists On the Notion of Measurement in Utility Theory, Psychology, Mathema",
+    "How cardinal utility entered economic analysis 1909-1944",
+    "Economics and Psychology Lessons for Our Own Day From the Early Twentieth Century",
+    "Walras — Économique et mécanique",
+    "Mathematical psychics",
+    "The Determinateness of the Utility Function",
+    "A Note on the Pure Theory of Consumer's Behaviour",
+    "The Cardinal Utility Which is Ordinal",
+    "The Utility Theorems of Wold, Debreu, and Arrow-Hahn",
+    "A Condition for the Completeness of Partial Preference Relations",
+    "Continuity Properties of Paretian Utility",
+    "The Foundations of Utility",
+    "Isolation, Assurance and the Social Rate of Discount",
+    "Quarterly journal of economics",
+    "The Rise of the Meritocracy, 1870–2033, by Michael Young",
+    "The Rise of the Meritocracy, 1870–2033",
+    "The Oxford Handbook of Economic Inequality",
+    "Review of Matthew D. Adler, Measuring Social Welfare An Introduction",
+    "Spotlight 3.2 Choosing an inequality index",
+    "Morals and markets",
+    "Monkeys reject unequal pay",
+    "Egalitarian motives in humans",
+    "Judgments of social justice Compromises between equality and efficiency",
+    "Fair shares Accountability and cognitive dissonance in allocation decisions",
+    "Cooperation and punishment in public goods experiments",
+    "Incentives and prosocial behavior",
+    "Health at a Glance Europe 2016"
+  ]
+}

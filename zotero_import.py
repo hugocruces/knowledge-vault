@@ -116,16 +116,14 @@ def extract_metadata_with_claude(client: anthropic.Anthropic, text: str) -> dict
 # ── Claude: classify into collection ─────────────────────────────────────────
 
 def classify_collection(client: anthropic.Anthropic, meta: dict,
-                         collections: list[dict], text: str = "") -> str | None:
+                         collections: list[dict], text: str = "") -> list[str]:
     col_list = "\n".join(f'- "{c["name"]}" (key: {c["key"]})' for c in collections)
     snippet = text[:1500] if text else ""
     prompt = textwrap.dedent(f"""\
-        You are helping organise an academic library. Choose the SINGLE most appropriate \
-        collection for the paper below, or reply "none" if it clearly doesn't fit any.
+        You are helping organise an academic library. A paper may belong to MORE THAN ONE \
+        collection — assign all that genuinely apply. Reply "none" only if it fits nowhere.
 
-        Collections (interpret the names broadly — e.g. "Tax-ben-systems" covers tax, \
-        benefits, welfare, social protection, child poverty and fiscal policy; \
-        "Income" covers income distribution, inequality, wages and wealth):
+        Collections:
         {col_list}
 
         Paper metadata:
@@ -138,16 +136,19 @@ def classify_collection(client: anthropic.Anthropic, meta: dict,
         Opening text of PDF:
         {snippet}
 
-        Reply with ONLY the collection key (e.g. 6IJGA8RL) or the word "none".
+        Reply with ONLY a comma-separated list of collection keys (e.g. 6IJGA8RL,FM3KKKKY) \
+        or the word "none". No spaces, no explanation.
     """)
     msg = client.messages.create(
         model=CLAUDE_MODEL,
-        max_tokens=20,
+        max_tokens=60,
         messages=[{"role": "user", "content": prompt}],
     )
     answer = msg.content[0].text.strip().strip('"')
     valid_keys = {c["key"] for c in collections}
-    return answer if answer in valid_keys else None
+    if answer.lower() == "none":
+        return []
+    return [k.strip() for k in answer.split(",") if k.strip() in valid_keys]
 
 
 # ── CrossRef enrichment ───────────────────────────────────────────────────────
@@ -271,7 +272,7 @@ def enrich_with_crossref(meta: dict) -> dict:
 
 # ── Build Zotero item template ────────────────────────────────────────────────
 
-def build_zotero_item(meta: dict, collection_key: str | None) -> dict:
+def build_zotero_item(meta: dict, collection_keys: list[str]) -> dict:
     item_type = ITEM_TYPE_MAP.get((meta.get("item_type") or "other").lower(), "document")
 
     def creators():
@@ -297,7 +298,7 @@ def build_zotero_item(meta: dict, collection_key: str | None) -> dict:
         "date": meta.get("year") or "",
         "abstractNote": meta.get("abstract") or "",
         "language": meta.get("language") or "",
-        "collections": [collection_key] if collection_key else [],
+        "collections": collection_keys,
     }
 
     # Type-specific fields
@@ -372,16 +373,16 @@ def process_pdf(pdf_path: Path, zot, client: anthropic.Anthropic,
 
     # 4. Classify collection
     print("  Classifying collection…")
-    col_key = classify_collection(client, meta, collections, text)
-    col_name = next((c["name"] for c in collections if c["key"] == col_key), "none")
-    print(f"  → Collection: {col_name} ({col_key})")
+    col_keys = classify_collection(client, meta, collections, text)
+    col_names = [c["name"] for c in collections if c["key"] in col_keys]
+    print(f"  → Collections: {', '.join(col_names) or 'none'}")
 
     if dry_run:
         print("  [dry-run] Skipping Zotero write.")
         return True
 
     # 5. Create Zotero parent item
-    zotero_item = build_zotero_item(meta, col_key)
+    zotero_item = build_zotero_item(meta, col_keys)
     print("  Creating Zotero item…")
     resp = zot.create_items([zotero_item])
     if not resp.get("success"):
