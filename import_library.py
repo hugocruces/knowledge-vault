@@ -414,10 +414,15 @@ def main():
 
         if result == "ok":
             progress["done"].append(pdf.name)
+            if pdf.name in progress["failed"]:
+                progress["failed"].remove(pdf.name)
         elif result == "duplicate":
             progress["skipped"].append(pdf.name)
+            if pdf.name in progress["failed"]:
+                progress["failed"].remove(pdf.name)
         else:
-            progress["failed"].append(pdf.name)
+            if pdf.name not in progress["failed"]:
+                progress["failed"].append(pdf.name)
 
         if not args.dry_run:
             save_progress(progress)
