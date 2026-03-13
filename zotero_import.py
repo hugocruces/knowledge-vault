@@ -30,7 +30,7 @@ from pyzotero import zotero
 # ── Config ────────────────────────────────────────────────────────────────────
 
 # Load .env from the same directory as this script, then fall back to env vars
-load_dotenv(Path(__file__).parent / ".env")
+load_dotenv(Path(__file__).resolve().parent / ".env")
 
 ZOTERO_USER_ID  = os.getenv("ZOTERO_USER_ID", "")
 ZOTERO_API_KEY  = os.getenv("ZOTERO_API_KEY", "")

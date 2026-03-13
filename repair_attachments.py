@@ -19,7 +19,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from pyzotero import zotero
 
-HERE = Path(__file__).parent
+HERE = Path(__file__).resolve().parent
 load_dotenv(HERE / ".env")
 
 ZOTERO_USER_ID = os.getenv("ZOTERO_USER_ID", "")

@@ -32,7 +32,7 @@ from pyzotero import zotero
 
 ZOTERO_STORAGE = Path.home() / "Zotero" / "storage"
 
-HERE = Path(__file__).parent
+HERE = Path(__file__).resolve().parent
 load_dotenv(HERE / ".env")
 
 ZOTERO_USER_ID = os.getenv("ZOTERO_USER_ID", "")

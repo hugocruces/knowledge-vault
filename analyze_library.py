@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 from pyzotero import zotero
 import os
 
-load_dotenv(Path(__file__).parent / ".env")
+load_dotenv(Path(__file__).resolve().parent / ".env")
 
 ANTHROPIC_KEY  = os.getenv("ANTHROPIC_API_KEY", "")
 ZOTERO_USER_ID = os.getenv("ZOTERO_USER_ID", "")
@@ -180,7 +180,7 @@ def main():
     print(f"\n── Coverage: ~{total_assigned} / {len(pdfs)} papers assigned ──")
 
     # Save full JSON for use in Phase 2
-    out_path = Path(__file__).parent / "proposed_collections.json"
+    out_path = Path(__file__).resolve().parent / "proposed_collections.json"
     out_path.write_text(json.dumps(result, indent=2, ensure_ascii=False))
     print(f"\nFull proposal saved to: {out_path}")
     print("Review it, edit if needed, then we'll use it in Phase 2 to create the collections and import.")
@@ -215,7 +215,7 @@ BATCH_SIZE = 80   # papers per Claude call — keeps response well within token 
 
 
 def run_assignment(folder: Path, client: anthropic.Anthropic) -> None:
-    here = Path(__file__).parent
+    here = Path(__file__).resolve().parent
     taxonomy_path = here / "proposed_collections.json"
     if not taxonomy_path.exists():
         print("ERROR: proposed_collections.json not found. Run without --assign first.")
