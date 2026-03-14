@@ -1,4 +1,4 @@
-#!/home/hugo/.local/share/uv/tools/zotero-mcp-server/bin/python3
+#!/usr/bin/env python3
 """
 zotero_import.py — Bulk PDF importer for Zotero with LLM metadata extraction
              and CrossRef/Semantic Scholar enrichment.

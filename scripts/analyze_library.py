@@ -1,4 +1,4 @@
-#!/home/hugo/.local/share/uv/tools/zotero-mcp-server/bin/python3
+#!/usr/bin/env python3
 """
 analyze_library.py — Phase 1: propose and assign a Zotero collection taxonomy.
 

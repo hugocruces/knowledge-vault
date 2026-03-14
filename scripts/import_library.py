@@ -1,4 +1,4 @@
-#!/home/hugo/.local/share/uv/tools/zotero-mcp-server/bin/python3
+#!/usr/bin/env python3
 """
 import_library.py — Phase 2: import PDFs into Zotero using paper_assignments.json.
 

@@ -1,4 +1,4 @@
-#!/home/hugo/.local/share/uv/tools/zotero-mcp-server/bin/python3
+#!/usr/bin/env python3
 """
 repair_attachments.py — Copy missing PDFs into Zotero local storage.
 

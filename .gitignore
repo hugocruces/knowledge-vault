@@ -1,13 +1,20 @@
-# Secrets
+# Credentials
 .env
 
-# Claude local settings (may contain API keys)
-.claude/settings.local.json
+# Claude local settings
+.claude/
+
+# Runtime / personal data
+text_cache/
+import_progress.json
+paper_assignments.json
+proposed_collections.json
 
 # Python
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*.egg-info/
+.venv/
 
 # PDFs are data, not code — ignore by default
 *.pdf
