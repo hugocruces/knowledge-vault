@@ -12,6 +12,23 @@ AI-powered tools for building and querying a personal academic library in [Zoter
 | `scripts/repair_attachments.py` | Fix missing local PDF files after a bulk import |
 | `scripts/review.py` | Generate a literature review from a natural-language query: searches Zotero, fetches full texts, synthesises with Claude |
 
+## Relationship to the Zotero MCP server
+
+This project is designed to work alongside the [zotero-mcp](https://github.com/54yyyu/zotero-mcp) server, an MCP (Model Context Protocol) server that gives AI assistants like Claude direct access to your Zotero library. Installing it lets you interact with your library conversationally — searching by topic, reading metadata, browsing collections — directly inside an AI coding environment such as [Claude Code](https://claude.ai/code).
+
+The scripts in this repository and the MCP server play complementary roles:
+
+- **MCP server → interactive use.** When you are working inside Claude Code, the MCP server lets Claude search your library semantically, inspect item metadata, read annotations, and navigate collections in real time. This is useful for exploratory questions ("what do I have on intergenerational mobility?") and for guiding which papers to pull into a review.
+- **Scripts → automation.** The scripts handle bulk operations that would be tedious interactively: importing hundreds of PDFs, building a taxonomy, repairing attachments, and running a full literature-review pipeline end-to-end without manual steps.
+
+In practice the two work well together: you can use the MCP server to explore and iterate, then invoke the scripts to act on what you find.
+
+### Installing the MCP server
+
+Follow the instructions at [github.com/54yyyu/zotero-mcp](https://github.com/54yyyu/zotero-mcp). The server requires the Zotero desktop app to be running locally and uses the same API key as the scripts above.
+
+---
+
 ## Requirements
 
 - Python 3.11+
@@ -21,7 +38,7 @@ AI-powered tools for building and querying a personal academic library in [Zoter
 Install dependencies:
 
 ```bash
-pip install anthropic pyzotero pymupdf requests python-dotenv
+pip install anthropic pyzotero pymupdf pymupdf4llm requests python-dotenv
 ```
 
 ## Setup
@@ -74,12 +91,15 @@ python scripts/review.py "impact of generative AI on labour markets" --out revie
 Options:
 
 ```
---limit N        Papers to include in synthesis (default: 12)
---candidates N   Candidates fetched before Claude re-ranks (default: 40)
---out FILE       Output file (default: auto-named from query)
+--limit N         Papers to include in synthesis (default: 12)
+--candidates N    Candidates fetched before Claude re-ranks (default: 40)
+--collection KEY  Use all items from a Zotero collection instead of searching
+--out FILE        Output file (default: auto-named from query)
 ```
 
-Full texts are cached in `text_cache/` so re-running the same query is fast and cheap.
+Full texts are extracted from local PDFs using [pymupdf4llm](https://github.com/pymupdf/RAG) which produces structured markdown (headings, tables, emphasis) rather than raw text — much better for LLM consumption. Extracted texts are cached in `text_cache/` so re-running the same query is fast and cheap. Falls back to plain PyMuPDF if pymupdf4llm is not installed.
+
+**Note:** Text extraction requires the Zotero desktop app to have the PDFs stored locally (in `~/Zotero/storage/`). The script does not use the Zotero Web API for full text, as that requires file sync to be enabled.
 
 ---
 

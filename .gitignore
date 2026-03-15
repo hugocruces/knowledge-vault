@@ -6,6 +6,7 @@
 
 # Runtime / personal data
 text_cache/
+output/
 import_progress.json
 paper_assignments.json
 proposed_collections.json

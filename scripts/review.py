@@ -9,27 +9,31 @@ Options:
     --limit N        Papers to include in synthesis (default: 12)
     --candidates N   Candidate papers fetched before re-ranking (default: 40)
     --out FILE       Output markdown file (default: auto-named from query)
+    --collection KEY Restrict search to a specific Zotero collection key
 
 Pipeline:
     1. Full-text search Zotero for candidate papers
     2. Claude re-ranks and selects the most relevant subset
-    3. Full texts fetched via Zotero API and cached in text_cache/{key}.txt
+    3. Full texts extracted from local PDFs (pymupdf4llm → markdown)
+       and cached in text_cache/{key}.md
     4. Claude synthesises a structured literature review → markdown
+
+Text extraction uses pymupdf4llm which produces structured markdown
+(headings, emphasis, tables) from PDFs — much better for LLM consumption
+than raw text. Falls back to plain PyMuPDF if pymupdf4llm is unavailable.
 """
 
 import os
 import sys
 import json
 import argparse
-import requests
 from pathlib import Path
 
-import fitz          # PyMuPDF — fallback PDF extraction
 import anthropic
 from dotenv import load_dotenv
 from pyzotero import zotero
 
-HERE = Path(__file__).resolve().parent
+HERE = Path(__file__).resolve().parent.parent   # repo root (scripts/ is one level down)
 load_dotenv(HERE / ".env")
 
 ZOTERO_USER_ID = os.getenv("ZOTERO_USER_ID", "")
@@ -37,9 +41,97 @@ ZOTERO_API_KEY = os.getenv("ZOTERO_API_KEY", "")
 ANTHROPIC_KEY  = os.getenv("ANTHROPIC_API_KEY", "")
 CLAUDE_MODEL   = "claude-sonnet-4-6"
 
-TEXT_CACHE         = HERE / "text_cache"
-MAX_CHARS_PER_PAPER = 40_000   # ~10k tokens; enough for detailed synthesis
-ZOTERO_API_BASE    = "https://api.zotero.org"
+TEXT_CACHE     = HERE / "text_cache"
+ZOTERO_STORAGE = Path.home() / "Zotero" / "storage"
+
+# Context windows as of 2026-03 (update when models change):
+#   claude-haiku-4-5   → 200k tokens
+#   claude-sonnet-4-6  → 200k tokens
+#   claude-opus-4-6    → 200k tokens
+# Rule of thumb: ~4 chars per token; reserve ~20k tokens for prompt + output.
+# Per-paper budget = (context_tokens - 20_000) * 4 / num_papers
+# Approximate full-paper read capacity:
+#   5  papers → ~144k chars/paper   (most papers fit fully)
+#   10 papers →  72k chars/paper    (short papers fit; long papers trimmed)
+#   15 papers →  48k chars/paper    (significant trimming likely)
+CONTEXT_TOKENS = 200_000
+PROMPT_RESERVE =  20_000   # tokens reserved for prompt scaffolding + output
+CONTEXT_BUDGET = (CONTEXT_TOKENS - PROMPT_RESERVE) * 4  # chars available for corpus
+
+
+# ── Text extraction ───────────────────────────────────────────────────────────
+
+def _find_pdf_path(zot, item_key: str) -> Path | None:
+    """Locate the PDF attachment for an item in ~/Zotero/storage/."""
+    try:
+        children = zot.children(item_key)
+    except Exception:
+        return None
+    for child in children:
+        if child["data"].get("contentType") == "application/pdf":
+            att_key = child["key"]
+            filename = child["data"].get("filename", "")
+            pdf_path = ZOTERO_STORAGE / att_key / filename
+            if pdf_path.exists():
+                return pdf_path
+    # Some items store the PDF directly under the item key
+    item_dir = ZOTERO_STORAGE / item_key
+    if item_dir.exists():
+        for pdf in item_dir.glob("*.pdf"):
+            return pdf
+    return None
+
+
+def _extract_markdown(pdf_path: Path) -> str:
+    """
+    Extract text from a PDF as structured markdown using pymupdf4llm.
+    Falls back to plain PyMuPDF get_text() if pymupdf4llm is unavailable.
+    """
+    try:
+        import pymupdf4llm
+        return pymupdf4llm.to_markdown(str(pdf_path))
+    except ImportError:
+        pass
+    except Exception as e:
+        print(f"    [pymupdf4llm error: {e}] falling back to plain extraction")
+
+    # Fallback: plain PyMuPDF
+    import fitz
+    doc = fitz.open(str(pdf_path))
+    return "\n\n".join(page.get_text() for page in doc)
+
+
+def get_full_text(zot, item_key: str, max_chars: int | None = None) -> str:
+    """
+    Return full text for item_key, using cache if available.
+    Extracts from the local PDF in ~/Zotero/storage/ using pymupdf4llm.
+    Full extracted text is always cached untruncated; max_chars is applied at read time.
+    """
+    # Check cache (.md only)
+    cache_path = TEXT_CACHE / f"{item_key}.md"
+    if cache_path.exists():
+        print(f"    [cache hit] {cache_path.name}")
+        text = cache_path.read_text(encoding="utf-8")
+        return text[:max_chars] if max_chars else text
+
+    # Find and extract from local PDF
+    pdf_path = _find_pdf_path(zot, item_key)
+    if not pdf_path:
+        print(f"    WARNING: no PDF found for {item_key}")
+        return ""
+
+    print(f"    Extracting: {pdf_path.name[:60]}…")
+    text = _extract_markdown(pdf_path)
+
+    if text.strip():
+        TEXT_CACHE.mkdir(exist_ok=True)
+        out = TEXT_CACHE / f"{item_key}.md"
+        out.write_text(text, encoding="utf-8")   # cache full text, untruncated
+        print(f"    Cached → {out.name} ({len(text):,} chars)")
+    else:
+        print(f"    WARNING: no text extracted from {pdf_path.name}")
+
+    return text[:max_chars] if max_chars else text
 
 
 # ── Zotero helpers ─────────────────────────────────────────────────────────────
@@ -47,78 +139,6 @@ ZOTERO_API_BASE    = "https://api.zotero.org"
 def search_zotero(zot, query: str, limit: int) -> list[dict]:
     """Full-text search across the entire Zotero library."""
     return zot.items(q=query, qmode="everything", limit=limit, itemType="-attachment")
-
-
-def fetch_fulltext_api(item_key: str) -> str:
-    """
-    Pull full text from the Zotero API fulltext endpoint.
-    Returns empty string if not indexed or on error.
-    """
-    url = f"{ZOTERO_API_BASE}/users/{ZOTERO_USER_ID}/items/{item_key}/fulltext"
-    try:
-        r = requests.get(
-            url,
-            headers={"Zotero-API-Key": ZOTERO_API_KEY},
-            timeout=15,
-        )
-        if r.status_code == 200:
-            return r.json().get("content", "")
-        return ""
-    except Exception as e:
-        print(f"    [fulltext API] {e}")
-        return ""
-
-
-def fetch_fulltext_pdf(zot, item_key: str) -> str:
-    """
-    Fallback: find the PDF in ~/Zotero/storage and extract with PyMuPDF.
-    """
-    storage = Path.home() / "Zotero" / "storage"
-    try:
-        children = zot.children(item_key)
-    except Exception:
-        return ""
-    for child in children:
-        if child["data"].get("contentType") == "application/pdf":
-            att_key = child["key"]
-            filename = child["data"].get("filename", "")
-            pdf_path = storage / att_key / filename
-            if pdf_path.exists():
-                try:
-                    doc = fitz.open(str(pdf_path))
-                    return "\n\n".join(page.get_text() for page in doc)
-                except Exception as e:
-                    print(f"    [PyMuPDF] {e}")
-    return ""
-
-
-def get_full_text(zot, item_key: str) -> str:
-    """
-    Return full text for item_key, using cache if available.
-    Tries Zotero API first, falls back to local PDF extraction.
-    """
-    cache_path = TEXT_CACHE / f"{item_key}.txt"
-    if cache_path.exists():
-        print(f"    [cache hit] {item_key}.txt")
-        return cache_path.read_text(encoding="utf-8")
-
-    print(f"    Fetching via API…")
-    text = fetch_fulltext_api(item_key)
-
-    if not text.strip():
-        print(f"    API empty — trying local PDF…")
-        text = fetch_fulltext_pdf(zot, item_key)
-
-    text = text[:MAX_CHARS_PER_PAPER]
-
-    if text.strip():
-        TEXT_CACHE.mkdir(exist_ok=True)
-        cache_path.write_text(text, encoding="utf-8")
-        print(f"    Cached → {cache_path.name}")
-    else:
-        print(f"    WARNING: no text found for {item_key}")
-
-    return text
 
 
 def get_item_metadata(zot, item_key: str) -> dict:
@@ -244,7 +264,14 @@ def main():
     parser.add_argument("query", help="Research question or topic")
     parser.add_argument(
         "--limit", type=int, default=12,
-        help="Number of papers to include in the synthesis (default: 12)",
+        help=(
+            "Number of papers to include in the synthesis (default: 12). "
+            f"Context budget ({CONTEXT_TOKENS:,} token window, {CONTEXT_BUDGET:,} chars for corpus): "
+            f"5 papers → ~{CONTEXT_BUDGET//5:,} chars/paper (full papers); "
+            f"10 → ~{CONTEXT_BUDGET//10:,}; "
+            f"15 → ~{CONTEXT_BUDGET//15:,} (trimming likely). "
+            "Use fewer papers for deeper full-text coverage."
+        ),
     )
     parser.add_argument(
         "--candidates", type=int, default=40,
@@ -253,6 +280,10 @@ def main():
     parser.add_argument(
         "--out", default=None,
         help="Output markdown file (default: auto-named from query)",
+    )
+    parser.add_argument(
+        "--collection", default=None,
+        help="Restrict to a Zotero collection key (skips search, uses all items in collection)",
     )
     args = parser.parse_args()
 
@@ -269,17 +300,29 @@ def main():
         out_path = Path(args.out)
     else:
         slug = args.query[:50].strip().replace(" ", "_").replace("/", "-")
-        out_path = HERE / f"{slug}.md"
+        out_path = HERE / "output" / f"{slug}.md"
 
     zot    = zotero.Zotero(ZOTERO_USER_ID, "user", ZOTERO_API_KEY)
     client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
 
+    chars_per_paper = CONTEXT_BUDGET // args.limit
+    print(f"\nModel: {CLAUDE_MODEL}  |  context: {CONTEXT_TOKENS:,} tokens")
+    print(f"Papers: {args.limit}  |  budget: {chars_per_paper:,} chars/paper (~{chars_per_paper//4:,} tokens)")
+    avg_paper_chars = 120_000   # median from library (38 papers, range 9k–353k)
+    coverage = min(100, round(chars_per_paper / avg_paper_chars * 100))
+    print(f"Expected coverage: ~{coverage}% of a typical paper ({avg_paper_chars//1000}k char median)")
+
     # ── Step 1: Search ──────────────────────────────────────────────────────────
-    print(f"\n[1/4] Searching Zotero: {args.query!r} (up to {args.candidates} candidates)…")
-    candidates = search_zotero(zot, args.query, limit=args.candidates)
-    print(f"      Found {len(candidates)} candidates.")
+    if args.collection:
+        print(f"\n[1/4] Fetching items from collection {args.collection}…")
+        candidates = zot.collection_items(args.collection, itemType="-attachment", limit=100)
+        print(f"      Found {len(candidates)} items.")
+    else:
+        print(f"\n[1/4] Searching Zotero: {args.query!r} (up to {args.candidates} candidates)…")
+        candidates = search_zotero(zot, args.query, limit=args.candidates)
+        print(f"      Found {len(candidates)} candidates.")
     if not candidates:
-        print("No results. Try a broader query.")
+        print("No results. Try a broader query or different collection.")
         sys.exit(1)
 
     # ── Step 2: Re-rank ─────────────────────────────────────────────────────────
@@ -289,12 +332,13 @@ def main():
     print(f"      Selected keys: {selected_keys}")
 
     # ── Step 3: Fetch full texts ────────────────────────────────────────────────
-    print(f"\n[3/4] Fetching full texts (cache: {TEXT_CACHE})…")
+    max_chars = CONTEXT_BUDGET // len(selected_keys)
+    print(f"\n[3/4] Fetching full texts (budget: {max_chars:,} chars/paper, cache: {TEXT_CACHE})…")
     papers = []
     for key in selected_keys:
         meta = get_item_metadata(zot, key)
         print(f"  {meta['authors']} ({meta['year']}) — {meta['title'][:65]}")
-        text = get_full_text(zot, key)
+        text = get_full_text(zot, key, max_chars=max_chars)
         papers.append({**meta, "text": text})
 
     # ── Step 4: Synthesise ──────────────────────────────────────────────────────
