@@ -85,7 +85,9 @@ chmod +x scripts/*.py
 Search your Zotero library, fetch full texts, and synthesise a markdown review in one command:
 
 ```bash
-python scripts/review.py "impact of generative AI on labour markets" --out review.md
+python scripts/review.py "impact of generative AI on labour markets"
+python scripts/review.py "impact of generative AI on labour markets" --limit 20 --out my_review.md
+python scripts/review.py "intergenerational mobility" --collection MAGMAPRT
 ```
 
 Options:
@@ -94,12 +96,21 @@ Options:
 --limit N         Papers to include in synthesis (default: 12)
 --candidates N    Candidates fetched before Claude re-ranks (default: 40)
 --collection KEY  Use all items from a Zotero collection instead of searching
---out FILE        Output file (default: auto-named from query)
+--out FILE        Output file (default: output/<query>.md)
 ```
 
-Full texts are extracted from local PDFs using [pymupdf4llm](https://github.com/pymupdf/RAG) which produces structured markdown (headings, tables, emphasis) rather than raw text — much better for LLM consumption. Extracted texts are cached in `text_cache/` so re-running the same query is fast and cheap. Falls back to plain PyMuPDF if pymupdf4llm is not installed.
+**Pipeline:**
 
-**Note:** Text extraction requires the Zotero desktop app to have the PDFs stored locally (in `~/Zotero/storage/`). The script does not use the Zotero Web API for full text, as that requires file sync to be enabled.
+1. **Search** — full-text search across your Zotero library (or fetch all items in a collection)
+2. **Re-rank** — Claude selects the `--limit` most relevant papers from the candidates
+3. **Extract** — full texts extracted from local PDFs using [pymupdf4llm](https://github.com/pymupdf/RAG), producing structured markdown (headings, tables, emphasis). Cached in `text_cache/` so re-running is fast.
+4. **Synthesise** — Claude writes the review. The synthesis strategy adapts automatically to the number of papers:
+   - **Single-pass** (corpus fits in context, typically ≤ 6 papers): all full texts sent to Claude in one call — maximum fidelity.
+   - **Batched** (larger reviews): papers are grouped into context-sized batches; Claude reads each batch in full and produces detailed per-paper summaries; a final call synthesises the summaries into the review. Every paper is always read in full — no truncation.
+
+Reviews are written to `output/` by default.
+
+**Note:** Text extraction reads PDFs from `~/Zotero/storage/` (Zotero's local storage). This works whether or not Zotero file sync is enabled. If sync *is* enabled, the Zotero MCP server can also fetch full texts interactively (see below).
 
 ---
 

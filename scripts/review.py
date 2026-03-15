@@ -8,7 +8,7 @@ Usage:
 Options:
     --limit N        Papers to include in synthesis (default: 12)
     --candidates N   Candidate papers fetched before re-ranking (default: 40)
-    --out FILE       Output markdown file (default: auto-named from query)
+    --out FILE       Output markdown file (default: output/<query>.md)
     --collection KEY Restrict search to a specific Zotero collection key
 
 Pipeline:
@@ -16,7 +16,8 @@ Pipeline:
     2. Claude re-ranks and selects the most relevant subset
     3. Full texts extracted from local PDFs (pymupdf4llm → markdown)
        and cached in text_cache/{key}.md
-    4. Claude synthesises a structured literature review → markdown
+    4. If all papers fit in context → single-pass synthesis
+       Otherwise → batched full-text summarisation → synthesis from summaries
 
 Text extraction uses pymupdf4llm which produces structured markdown
 (headings, emphasis, tables) from PDFs — much better for LLM consumption
@@ -48,12 +49,7 @@ ZOTERO_STORAGE = Path.home() / "Zotero" / "storage"
 #   claude-haiku-4-5   → 200k tokens
 #   claude-sonnet-4-6  → 200k tokens
 #   claude-opus-4-6    → 200k tokens
-# Rule of thumb: ~4 chars per token; reserve ~20k tokens for prompt + output.
-# Per-paper budget = (context_tokens - 20_000) * 4 / num_papers
-# Approximate full-paper read capacity:
-#   5  papers → ~144k chars/paper   (most papers fit fully)
-#   10 papers →  72k chars/paper    (short papers fit; long papers trimmed)
-#   15 papers →  48k chars/paper    (significant trimming likely)
+# Rule of thumb: ~4 chars per token.
 CONTEXT_TOKENS = 200_000
 PROMPT_RESERVE =  20_000   # tokens reserved for prompt scaffolding + output
 CONTEXT_BUDGET = (CONTEXT_TOKENS - PROMPT_RESERVE) * 4  # chars available for corpus
@@ -101,18 +97,17 @@ def _extract_markdown(pdf_path: Path) -> str:
     return "\n\n".join(page.get_text() for page in doc)
 
 
-def get_full_text(zot, item_key: str, max_chars: int | None = None) -> str:
+def get_full_text(zot, item_key: str) -> str:
     """
     Return full text for item_key, using cache if available.
     Extracts from the local PDF in ~/Zotero/storage/ using pymupdf4llm.
-    Full extracted text is always cached untruncated; max_chars is applied at read time.
+    Full text is always returned untruncated.
     """
     # Check cache (.md only)
     cache_path = TEXT_CACHE / f"{item_key}.md"
     if cache_path.exists():
         print(f"    [cache hit] {cache_path.name}")
-        text = cache_path.read_text(encoding="utf-8")
-        return text[:max_chars] if max_chars else text
+        return cache_path.read_text(encoding="utf-8")
 
     # Find and extract from local PDF
     pdf_path = _find_pdf_path(zot, item_key)
@@ -126,12 +121,12 @@ def get_full_text(zot, item_key: str, max_chars: int | None = None) -> str:
     if text.strip():
         TEXT_CACHE.mkdir(exist_ok=True)
         out = TEXT_CACHE / f"{item_key}.md"
-        out.write_text(text, encoding="utf-8")   # cache full text, untruncated
+        out.write_text(text, encoding="utf-8")
         print(f"    Cached → {out.name} ({len(text):,} chars)")
     else:
         print(f"    WARNING: no text extracted from {pdf_path.name}")
 
-    return text[:max_chars] if max_chars else text
+    return text
 
 
 # ── Zotero helpers ─────────────────────────────────────────────────────────────
@@ -204,10 +199,65 @@ def rerank_with_claude(client, query: str, items: list[dict], top_n: int) -> lis
         return [item["key"] for item in items[:top_n]]
 
 
-def synthesize(client, query: str, papers: list[dict], out_path: Path) -> None:
-    """Synthesise all full texts into a structured literature review."""
+def _build_batches(papers: list[dict], budget: int) -> list[list[dict]]:
+    """Split papers into batches where each batch's total text fits in budget."""
+    batches = []
+    current_batch = []
+    current_size = 0
+    for p in papers:
+        paper_size = len(p["text"])
+        if current_batch and current_size + paper_size > budget:
+            batches.append(current_batch)
+            current_batch = [p]
+            current_size = paper_size
+        else:
+            current_batch.append(p)
+            current_size += paper_size
+    if current_batch:
+        batches.append(current_batch)
+    return batches
+
+
+def summarize_batch(client, query: str, batch: list[dict]) -> str:
+    """Send a batch of papers with full text to Claude for per-paper summarisation."""
+    corpus_parts = []
+    for p in batch:
+        text = p["text"] or "(full text unavailable)"
+        corpus_parts.append(
+            f"=== {p['authors']} ({p['year']}) — {p['title']} ===\n{text}"
+        )
+    full_corpus = "\n\n".join(corpus_parts)
+
+    prompt = f"""You are a senior research economist. Read the following {len(batch)} papers carefully and provide a detailed summary of each.
+
+Research context: "{query}"
+
+For each paper, write:
+- A header line: **Authors (Year). Title.**
+- A detailed paragraph (8–12 sentences) covering: research question, methodology and data, key findings with specific numbers, and implications for the research context above.
+- A short note on key limitations or caveats.
+
+Be thorough and preserve specific quantitative findings — these summaries will be the basis for a literature review.
+
+--- FULL TEXTS ---
+{full_corpus}
+"""
+
+    batch_chars = sum(len(p["text"]) for p in batch)
+    print(f"    Sending {batch_chars:,} chars to Claude…")
+    max_output = min(1024 * len(batch), 8192)
+    msg = client.messages.create(
+        model=CLAUDE_MODEL,
+        max_tokens=max_output,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return msg.content[0].text.strip()
+
+
+def synthesize_direct(client, query: str, papers: list[dict], out_path: Path) -> None:
+    """Single-pass synthesis when all full texts fit in context."""
     ref_list = "\n".join(
-        f"- [{p['key']}] {p['authors']} ({p['year']}). {p['title']}."
+        f"- {p['authors']} ({p['year']}). {p['title']}."
         for p in papers
     )
 
@@ -215,7 +265,7 @@ def synthesize(client, query: str, papers: list[dict], out_path: Path) -> None:
     for p in papers:
         text = p["text"] or "(full text unavailable — use abstract only)"
         corpus_parts.append(
-            f"=== [{p['key']}] {p['authors']} ({p['year']}) — {p['title']} ===\n{text}"
+            f"=== {p['authors']} ({p['year']}) — {p['title']} ===\n{text}"
         )
     full_corpus = "\n\n".join(corpus_parts)
 
@@ -226,7 +276,7 @@ def synthesize(client, query: str, papers: list[dict], out_path: Path) -> None:
 
 Research question: "{query}"
 
-Below are the full texts (or excerpts) of {len(papers)} papers. Synthesise them into a ~2-page literature review in markdown following these rules:
+Below are the full texts of {len(papers)} papers. Synthesise them into a comprehensive literature review in markdown following these rules:
 
 - Title: "# [topic]: Evidence and Implications"
 - Sections: Introduction, then 3–4 thematic sections with descriptive headings, Policy Implications, Conclusion
@@ -246,7 +296,48 @@ Available papers:
     print(f"  Sending to Claude ({len(prompt):,} chars)…")
     msg = client.messages.create(
         model=CLAUDE_MODEL,
-        max_tokens=4096,
+        max_tokens=8192,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    result = msg.content[0].text.strip()
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(result, encoding="utf-8")
+    print(f"\nReview written to: {out_path}")
+
+
+def synthesize_from_summaries(client, query: str, papers: list[dict],
+                              summaries: str, out_path: Path) -> None:
+    """Final synthesis from per-paper summaries (multi-pass mode)."""
+    ref_list = "\n".join(
+        f"- {p['authors']} ({p['year']}). {p['title']}."
+        for p in papers
+    )
+
+    prompt = f"""You are a senior research economist writing a structured literature review.
+
+Research question: "{query}"
+
+Below are detailed summaries of {len(papers)} papers, each produced from a full-text reading. Synthesise them into a comprehensive literature review in markdown following these rules:
+
+- Title: "# [topic]: Evidence and Implications"
+- Sections: Introduction, then 3–4 thematic sections with descriptive headings, Policy Implications, Conclusion
+- Written in flowing paragraphs — no bullet points in the body
+- Each paragraph must be a single continuous line (no mid-paragraph line breaks)
+- Cite inline as (Author, Year) — only papers listed below
+- End with a References table: | # | Authors | Year | Title |
+- Do not invent references or cite papers not in the list
+
+Available papers:
+{ref_list}
+
+--- DETAILED SUMMARIES (from full-text reading) ---
+{summaries}
+"""
+
+    print(f"  Sending summaries to Claude ({len(prompt):,} chars)…")
+    msg = client.messages.create(
+        model=CLAUDE_MODEL,
+        max_tokens=8192,
         messages=[{"role": "user", "content": prompt}],
     )
     result = msg.content[0].text.strip()
@@ -264,14 +355,8 @@ def main():
     parser.add_argument("query", help="Research question or topic")
     parser.add_argument(
         "--limit", type=int, default=12,
-        help=(
-            "Number of papers to include in the synthesis (default: 12). "
-            f"Context budget ({CONTEXT_TOKENS:,} token window, {CONTEXT_BUDGET:,} chars for corpus): "
-            f"5 papers → ~{CONTEXT_BUDGET//5:,} chars/paper (full papers); "
-            f"10 → ~{CONTEXT_BUDGET//10:,}; "
-            f"15 → ~{CONTEXT_BUDGET//15:,} (trimming likely). "
-            "Use fewer papers for deeper full-text coverage."
-        ),
+        help="Number of papers to include in the synthesis (default: 12). "
+             "All papers are read in full regardless of count.",
     )
     parser.add_argument(
         "--candidates", type=int, default=40,
@@ -279,7 +364,7 @@ def main():
     )
     parser.add_argument(
         "--out", default=None,
-        help="Output markdown file (default: auto-named from query)",
+        help="Output markdown file (default: output/<query>.md)",
     )
     parser.add_argument(
         "--collection", default=None,
@@ -305,12 +390,7 @@ def main():
     zot    = zotero.Zotero(ZOTERO_USER_ID, "user", ZOTERO_API_KEY)
     client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
 
-    chars_per_paper = CONTEXT_BUDGET // args.limit
-    print(f"\nModel: {CLAUDE_MODEL}  |  context: {CONTEXT_TOKENS:,} tokens")
-    print(f"Papers: {args.limit}  |  budget: {chars_per_paper:,} chars/paper (~{chars_per_paper//4:,} tokens)")
-    avg_paper_chars = 120_000   # median from library (38 papers, range 9k–353k)
-    coverage = min(100, round(chars_per_paper / avg_paper_chars * 100))
-    print(f"Expected coverage: ~{coverage}% of a typical paper ({avg_paper_chars//1000}k char median)")
+    print(f"\nModel: {CLAUDE_MODEL}  |  context: {CONTEXT_TOKENS:,} tokens  |  corpus budget: {CONTEXT_BUDGET:,} chars")
 
     # ── Step 1: Search ──────────────────────────────────────────────────────────
     if args.collection:
@@ -331,19 +411,43 @@ def main():
     selected_keys = rerank_with_claude(client, args.query, candidates, top_n)
     print(f"      Selected keys: {selected_keys}")
 
-    # ── Step 3: Fetch full texts ────────────────────────────────────────────────
-    max_chars = CONTEXT_BUDGET // len(selected_keys)
-    print(f"\n[3/4] Fetching full texts (budget: {max_chars:,} chars/paper, cache: {TEXT_CACHE})…")
+    # ── Step 3: Fetch full texts (always untruncated) ─────────────────────────
+    print(f"\n[3/4] Fetching full texts (no truncation, cache: {TEXT_CACHE})…")
     papers = []
     for key in selected_keys:
         meta = get_item_metadata(zot, key)
-        print(f"  {meta['authors']} ({meta['year']}) — {meta['title'][:65]}")
-        text = get_full_text(zot, key, max_chars=max_chars)
+        text = get_full_text(zot, key)
+        size_k = len(text) // 1000
+        print(f"  {meta['authors']} ({meta['year']}) — {meta['title'][:55]}  [{size_k}k]")
         papers.append({**meta, "text": text})
 
+    total_chars = sum(len(p["text"]) for p in papers)
+    print(f"      Total corpus: {total_chars:,} chars (~{total_chars // 4:,} tokens)")
+
     # ── Step 4: Synthesise ──────────────────────────────────────────────────────
-    print(f"\n[4/4] Synthesising literature review…")
-    synthesize(client, args.query, papers, out_path)
+    if total_chars <= CONTEXT_BUDGET:
+        # All papers fit in context → single-pass, full-text synthesis
+        print(f"\n[4/4] All papers fit in context — single-pass full-text synthesis…")
+        synthesize_direct(client, args.query, papers, out_path)
+    else:
+        # Multi-pass: batch summarise from full text, then synthesise from summaries
+        batches = _build_batches(papers, CONTEXT_BUDGET)
+        n_batches = len(batches)
+        print(f"\n[4a] Corpus exceeds context — summarising in {n_batches} batches (full text, no truncation)…")
+
+        all_summaries = []
+        for i, batch in enumerate(batches):
+            batch_chars = sum(len(p["text"]) for p in batch)
+            print(f"\n  Batch {i + 1}/{n_batches}: {len(batch)} papers, {batch_chars:,} chars")
+            for p in batch:
+                print(f"    • {p['authors']} ({p['year']}) — {p['title'][:60]}")
+            summary = summarize_batch(client, args.query, batch)
+            all_summaries.append(summary)
+            print(f"    → Summary: {len(summary):,} chars")
+
+        combined = "\n\n---\n\n".join(all_summaries)
+        print(f"\n[4b] Synthesising review from {len(all_summaries)} batch summaries ({len(combined):,} chars)…")
+        synthesize_from_summaries(client, args.query, papers, combined, out_path)
 
 
 if __name__ == "__main__":
