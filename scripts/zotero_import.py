@@ -25,6 +25,10 @@ import anthropic
 from dotenv import load_dotenv
 from pyzotero import zotero
 
+# Ensure scripts/ is on sys.path so utils.py is importable regardless of
+# the working directory or whether the script is invoked via a symlink.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 from utils import (
     REPO_ROOT,
     ITEM_TYPE_MAP,
