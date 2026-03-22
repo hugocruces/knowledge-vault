@@ -38,7 +38,7 @@ Follow the instructions at [github.com/54yyyu/zotero-mcp](https://github.com/54y
 Install dependencies:
 
 ```bash
-pip install anthropic pyzotero pymupdf pymupdf4llm requests python-dotenv
+pip install -r requirements.txt
 ```
 
 ## Setup

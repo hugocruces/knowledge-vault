@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 from pyzotero import zotero
 import os
 
-load_dotenv(Path(__file__).resolve().parent / ".env")
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 ANTHROPIC_KEY  = os.getenv("ANTHROPIC_API_KEY", "")
 ZOTERO_USER_ID = os.getenv("ZOTERO_USER_ID", "")
